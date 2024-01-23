@@ -29,7 +29,24 @@ function JavaScript() {
           functions, and much more.
         </Text>
       </Container>
-      <Box sx={boxStyles}></Box>
+      <Box sx={boxStyles}>
+        <Link
+          href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_editor"
+          isExternal
+        >
+          <Button colorScheme="Pink" size="lg">
+            Try it!
+          </Button>
+        </Link>
+        <Link
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+          isExternal
+        >
+          <Button colorScheme="purple" size="lg">
+            Learn More
+          </Button>
+        </Link>
+      </Box>
     </Box>
   );
 }

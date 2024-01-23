@@ -1,8 +1,10 @@
-import { Container, Box, Heading, Text } from "@chakra-ui/react";
+import { Container, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 
 function HTML() {
   const boxStyles = {
     p: "10px",
+    display: "flex",
+    justifyContent: "space-between",
   };
 
   return (
@@ -27,7 +29,24 @@ function HTML() {
           online application.
         </Text>
       </Container>
-      <Box sx={boxStyles}></Box>
+      <Box sx={boxStyles}>
+        <Link
+          href="https://www.w3schools.com/tryit/tryit.asp?filename=tryhtml_hello"
+          isExternal
+        >
+          <Button colorScheme="Pink" size="lg">
+            Try it!
+          </Button>
+        </Link>
+        <Link
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+          isExternal
+        >
+          <Button colorScheme="purple" size="lg">
+            Learn More
+          </Button>
+        </Link>
+      </Box>
     </Box>
   );
 }

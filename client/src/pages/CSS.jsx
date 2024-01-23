@@ -28,7 +28,24 @@ function CSS() {
           social media styling, and various other applications.
         </Text>
       </Container>
-      <Box sx={boxStyles}></Box>
+      <Box sx={boxStyles}>
+        <Link
+          href="https://www.w3schools.com/css/tryit.asp?filename=trycss_intro"
+          isExternal
+        >
+          <Button colorScheme="Pink" size="lg">
+            Try it!
+          </Button>
+        </Link>
+        <Link
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+          isExternal
+        >
+          <Button colorScheme="purple" size="lg">
+            Learn More
+          </Button>
+        </Link>
+      </Box>
     </Box>
   );
 }
