@@ -1,30 +1,45 @@
+import './Main.css';
+import { Outlet } from 'react-router-dom';
+import { ApolloClient , InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+import { ChakraProvider } from '@chakra-ui/react';
+import '@fontsource-variable/figtree';
+
+import theme from './components/Theme';
 import Navbar from './components/Navbar';
 import Footer from './components/footer/Footer';
-import Homepage from './pages/Homepage';
-import HTML from './pages/HTML';
-import CSS from './pages/CSS';
-import JavaScript from './pages/JavaScript';
-import MySQL from './pages/MySQL';
-import React from './pages/React';
-import { Route, Routes } from "react-router-dom";
-import './Main.css';
- 
+
+
+const httpLink = createHttpLink({
+    uri: '/graphql',
+})
+
+const authLink = setContext((_, { headers }) => {
+    const token = localStorage.getItem('id_token');
+
+    return {
+        headers: {
+            ...headers,
+            authorization: token ? `Bearer ${token}` : '',
+        },
+    };
+});
+
+const client = new ApolloClient({
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache(),
+});
+
 function App() {
     return (
-        <>
-            <Navbar/>
-            <div className='container'>
-                <Routes>
-                    <Route path ="/" element={<Homepage/>} />
-                    <Route path ="/HTML" element={<HTML/>} />
-                    <Route path ="/CSS" element={<CSS/>} />
-                    <Route path ="/JavaScript" element={<JavaScript/>} />
-                    <Route path ="/MySQL" element={<MySQL/>} />
-                    <Route path ="/React" element={<React/>} />
-                </Routes>
-            </div>
-            <Footer/>
-        </>
+        <ChakraProvider theme={theme}>
+            <ApolloProvider client={client}>
+                <Navbar/>
+                <div className='container'>
+                    <Outlet />
+                </div>
+                <Footer/>
+            </ApolloProvider>
+        </ChakraProvider >
     );    
 }
 
