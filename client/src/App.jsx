@@ -6,6 +6,7 @@ import CSS from './pages/CSS';
 import JavaScript from './pages/JavaScript';
 import MySQL from './pages/MySQL';
 import React from './pages/React';
+import Login from './pages/Login';
 import { Route, Routes } from "react-router-dom";
 import './Main.css';
  
@@ -21,6 +22,7 @@ function App() {
                     <Route path ="/JavaScript" element={<JavaScript/>} />
                     <Route path ="/MySQL" element={<MySQL/>} />
                     <Route path ="/React" element={<React/>} />
+                    <Route path ="/Login" element={<Login/>} />
                 </Routes>
             </div>
             <Footer/>
