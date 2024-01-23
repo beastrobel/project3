@@ -1,0 +1,54 @@
+[
+    {
+        "username": "Zoidberg",
+        "password": "password01"
+    },
+    {
+        "username": "Zap_Brannigan",
+        "password": "password02"
+    },
+    {
+        "username": "Fry",
+        "password": "password03"
+    },
+    {
+        "username": "Hermes_Conrad",
+        "password": "password04"
+    },
+    {
+        "username": "Leela",
+        "password": "password05"
+    },
+    {
+        "username": "Amy_Wong",
+        "password": "password06"
+    },
+    {
+        "username": "Nibbler",
+        "password": "password07"
+    },
+    {
+        "username": "Scruffy",
+        "password": "password08"
+    },
+    {
+        "username": "Lurrrr",
+        "password": "password09"
+    },
+    {
+        "username": "Bender",
+        "password": "password10"
+    },
+    {
+        "username": "Kiff_Kroaker",
+        "password": "password11"
+    },
+    {
+        "username": "Hubert_Farnsworth",
+        "password": "password12"
+    },
+    {
+        "username": "Hue_Mann",
+        "password": "password13"
+    }
+]
