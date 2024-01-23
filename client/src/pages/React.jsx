@@ -28,7 +28,24 @@ function ReactComponent() {
           community for creating dynamic and responsive user interfaces.
         </Text>
       </Container>
-      <Box sx={boxStyles}></Box>
+      <Box sx={boxStyles}>
+        <Link
+          href="https://react.dev/learn"
+          isExternal
+        >
+          <Button colorScheme="Pink" size="lg">
+            Try it!
+          </Button>
+        </Link>
+        <Link
+          href="https://react.dev/"
+          isExternal
+        >
+          <Button colorScheme="purple" size="lg">
+            Learn More
+          </Button>
+        </Link>
+      </Box>
     </Box>
   );
 }

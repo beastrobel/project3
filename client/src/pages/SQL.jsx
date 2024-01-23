@@ -29,7 +29,24 @@ function MySQL() {
           various industries.
         </Text>
       </Container>
-      <Box sx={boxStyles}></Box>
+      <Box sx={boxStyles}>
+        <Link
+          href="https://sqlfiddle.com/mysql/online-compiler"
+          isExternal
+        >
+          <Button colorScheme="Pink" size="lg">
+            Try it!
+          </Button>
+        </Link>
+        <Link
+          href="https://dev.mysql.com/doc/"
+          isExternal
+        >
+          <Button colorScheme="purple" size="lg">
+            Learn More
+          </Button>
+        </Link>
+      </Box>
     </Box>
   );
 }
