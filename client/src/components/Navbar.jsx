@@ -33,7 +33,7 @@ function Navbar() {
             <Spacer />
 
             <Button colorScheme="purple">Explore</Button>
-            <Button colorScheme="gray">Login</Button>
+            <CustomLink to="/Login"><Button colorScheme="gray">Login</Button></CustomLink>
 
 
             </Menu>
