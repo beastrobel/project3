@@ -1,6 +1,6 @@
 import { Container, Box, Heading, Text } from "@chakra-ui/react";
 
-function MySQL() {
+function SQL() {
   const boxStyles = {
     p: "10px",
   };
@@ -34,4 +34,4 @@ function MySQL() {
   );
 }
 
-export default MySQL;
+export default SQL;
