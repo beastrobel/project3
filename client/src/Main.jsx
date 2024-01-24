@@ -10,11 +10,15 @@ import React from './pages/React';
 import Login from './components/Login';
 import Signup from './components/Signup'
 import App from './App.jsx';
+import Login from './pages/Login.jsx';
+import ErrorPage from './pages/Error.jsx'
+
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index:true,

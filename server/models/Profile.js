@@ -1,19 +1,15 @@
 const { Schema, model } = require('mongoose');
-const bcrypt = requre('bcrypt');
+const bcrypt = require('bcrypt');
 
 const profileSchema = new Schema({
-    userName: {
+    username: {
         type: String,
         required: true,
-    },
-    comments: {
-        type: String,
     },
     password: {
         type: String,
         required: true,
         minLength: 5,
-        match: [/!@#\$%\^&\*()_+-=[]\|;':",.<>/, 'Must contain a special character'],
     },
     questions:[
         {
