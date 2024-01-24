@@ -5,8 +5,9 @@ import CSS from './pages/CSS';
 import HomePage from './pages/Homepage';
 import HTML from './pages/HTML';
 import JavaScript from './pages/JavaScript';
-import MySQL from './pages/MySQL';
+import MySQL from './pages/SQL';
 import React from './pages/React';
+import Login from './components/Login';
 import App from './App.jsx';
 
 const router = createBrowserRouter([
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
       {
         path: 'React',
         element: <React />,
-      }
+      },
+      {
+        path: 'Login',
+        element: <Login />,
+      },
 
     ]
   }
