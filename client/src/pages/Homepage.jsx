@@ -1,4 +1,4 @@
-import { Container, Box, Heading, Text } from "@chakra-ui/react";
+import { Container, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 
 function Homepage () {
 

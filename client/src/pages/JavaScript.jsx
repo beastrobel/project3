@@ -1,8 +1,15 @@
-import { Container, Box, Heading, Text } from "@chakra-ui/react";
+import { Container, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 
 function JavaScript() {
   const boxStyles = {
     p: "10px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
+  const linkStyles = {
+    marginRight: "10px",
   };
 
   return (
@@ -33,14 +40,16 @@ function JavaScript() {
         <Link
           href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_editor"
           isExternal
+          style={linkStyles}
         >
-          <Button colorScheme="Pink" size="lg">
+          <Button colorScheme="green" size="lg">
             Try it!
           </Button>
         </Link>
         <Link
           href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
           isExternal
+          style={linkStyles}
         >
           <Button colorScheme="purple" size="lg">
             Learn More

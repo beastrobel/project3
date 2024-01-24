@@ -1,8 +1,15 @@
-import { Container, Box, Heading, Text } from "@chakra-ui/react";
+import { Container, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 
 function ReactComponent() {
   const boxStyles = {
     p: "10px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
+  const linkStyles = {
+    marginRight: "10px",
   };
 
   return (
@@ -29,18 +36,12 @@ function ReactComponent() {
         </Text>
       </Container>
       <Box sx={boxStyles}>
-        <Link
-          href="https://react.dev/learn"
-          isExternal
-        >
-          <Button colorScheme="Pink" size="lg">
+        <Link href="https://react.dev/learn" isExternal style={linkStyles}>
+          <Button colorScheme="green" size="lg">
             Try it!
           </Button>
         </Link>
-        <Link
-          href="https://react.dev/"
-          isExternal
-        >
+        <Link href="https://react.dev/" isExternal style={linkStyles}>
           <Button colorScheme="purple" size="lg">
             Learn More
           </Button>
