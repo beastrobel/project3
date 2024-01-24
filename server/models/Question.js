@@ -2,11 +2,11 @@ const { Schema, model} = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const questionSchema = new Schema({
-    author: {
+    questionAuthor: {
         type: String,
         required: true,
     },
-    question: {
+    questionText: {
         type: String,
         required: `We're here to help you, let us know your question`,
         minLength: 1,

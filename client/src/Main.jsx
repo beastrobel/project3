@@ -9,11 +9,15 @@ import MySQL from './pages/SQL';
 import React from './pages/React';
 import Login from './components/Login';
 import App from './App.jsx';
+import Login from './pages/Login.jsx';
+import ErrorPage from './pages/Error.jsx'
+
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index:true,
@@ -41,8 +45,9 @@ const router = createBrowserRouter([
       },
       {
         path: 'Login',
-        element: <Login />,
-      },
+        element: <Login />
+      }
+
 
     ]
   }

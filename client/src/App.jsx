@@ -15,6 +15,7 @@ import SQL from './pages/SQL';
 import React from './pages/React';
 
 
+
 const httpLink = createHttpLink({
     uri: '/graphql',
 })
