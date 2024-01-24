@@ -26,7 +26,7 @@ function Navbar() {
                     <CustomLink to="/HTML"><MenuItem>HTML</MenuItem></CustomLink>
                     <CustomLink to="/CSS"><MenuItem>CSS</MenuItem></CustomLink>
                     <CustomLink to="/JavaScript"><MenuItem>JavaScript</MenuItem></CustomLink>
-                    <CustomLink to="/MySQL"><MenuItem>MySQL</MenuItem></CustomLink>
+                    <CustomLink to="/SQL"><MenuItem>SQL</MenuItem></CustomLink>
                     <CustomLink to="/React"><MenuItem>React</MenuItem></CustomLink>
             </MenuList>
             <CustomLink to="/"><Heading size="md" ml="10px">The Programmer's Guide to the Galaxy</Heading></CustomLink>

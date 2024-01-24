@@ -5,12 +5,11 @@ import CSS from './pages/CSS';
 import HomePage from './pages/Homepage';
 import HTML from './pages/HTML';
 import JavaScript from './pages/JavaScript';
-import MySQL from './pages/SQL';
-import React from './pages/React';
+import SQL from './pages/SQL';
+import ReactComponent from './pages/React';
 import Login from './components/Login';
-import Signup from './components/Signup'
+import Signup from './components/Signup';
 import App from './App.jsx';
-import Login from './pages/Login.jsx';
 import ErrorPage from './pages/Error.jsx'
 
 
@@ -29,7 +28,7 @@ const router = createBrowserRouter([
         element: <HTML />,
       },
       {
-        path: 'CSS',
+        path: '/CSS',
         element: <CSS />,        
       },
       {
@@ -37,27 +36,24 @@ const router = createBrowserRouter([
         element: <JavaScript />,
       },
       {
-        path: '/MySQL',
-        element: <MySQL />,
+        path: '/SQL',
+        element: <SQL />,
       },
       {
-        path: 'React',
-        element: <React />,
+        path: '/React',
+        element: <ReactComponent />,
       },
       {
-        path: 'Login',
+        path: '/Login',
         element: <Login />,
       },
       {
-        path: 'Signup',
+        path: '/Signup',
         element: <Signup />,
       },
-
     ]
   }
 ])
-
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
