@@ -1,4 +1,3 @@
-import './Main.css';
 import { Outlet } from 'react-router-dom';
 import { ApolloClient , InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -7,6 +6,13 @@ import { setContext } from '@apollo/client/link/context';
 import theme from './components/Theme';
 import Navbar from './components/Navbar';
 import Footer from './components/footer/Footer';
+
+import CSS from './pages/CSS';
+import HomePage from './pages/Homepage';
+import HTML from './pages/HTML';
+import JavaScript from './pages/JavaScript';
+import SQL from './pages/SQL';
+import React from './pages/React';
 
 
 

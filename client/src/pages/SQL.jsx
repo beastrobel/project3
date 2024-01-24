@@ -1,17 +1,45 @@
-import { Container, Box, Heading, Text } from "@chakra-ui/react";
+import { Container, Box, Heading, Text, Button, Link, Image } from "@chakra-ui/react";
 
-function MySQL() {
+function SQL() {
   const boxStyles = {
     p: "10px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   };
+
+  const linkStyles = {
+    marginRight: "10px",
+  };
+
+  const heroBoxStyles= {
+    bgColor: "black",
+    h: "300px",
+    position: "relative",
+
+  };
+
+  const heroTextStyles= {
+    color: "white",
+    fontSize: "5xl",
+    pos: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%,-50%)",
+  };
+
+  const imageStyles={
+    boxSize: "full",
+    opacity: "60%", 
+    blendMode: "screen",
+  }
 
   return (
     <Box as="section">
-      <div className="hero-image">
-        <div className="hero-text">
-          <Heading color="white">SQL</Heading>
-        </div>
-      </div>
+      <Box sx={heroBoxStyles}>
+          <Image src="/REACT.jpg" sx={imageStyles} />
+          <Heading as="h1" sx={heroTextStyles}>SQL</Heading>
+      </Box>  
       <Container maxWidth="md" py="50px">
         <Text>
           SQL is like the language databases understand. It helps manage data by
@@ -33,15 +61,13 @@ function MySQL() {
         <Link
           href="https://sqlfiddle.com/mysql/online-compiler"
           isExternal
+          style={linkStyles}
         >
-          <Button colorScheme="Pink" size="lg">
+          <Button colorScheme="green" size="lg">
             Try it!
           </Button>
         </Link>
-        <Link
-          href="https://dev.mysql.com/doc/"
-          isExternal
-        >
+        <Link href="https://dev.mysql.com/doc/" isExternal style={linkStyles}>
           <Button colorScheme="purple" size="lg">
             Learn More
           </Button>
@@ -51,4 +77,4 @@ function MySQL() {
   );
 }
 
-export default MySQL;
+export default SQL;
