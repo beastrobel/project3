@@ -57,12 +57,12 @@ function ReactComponent() {
         </Text>
       </Container>
       <Box sx={boxStyles}>
-        <Link href="https://react.dev/learn" isExternal style={linkStyles}>
+        <Link href="https://react.dev/learn" isExternal style={linkStyles} target="blank">
           <Button colorScheme="green" size="lg">
             Try it!
           </Button>
         </Link>
-        <Link href="https://react.dev/" isExternal style={linkStyles}>
+        <Link href="https://react.dev/" isExternal style={linkStyles} target="blank">
           <Button colorScheme="purple" size="lg">
             Learn More
           </Button>

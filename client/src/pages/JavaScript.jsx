@@ -62,6 +62,7 @@ function JavaScript() {
           href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_editor"
           isExternal
           style={linkStyles}
+          target="blank"
         >
           <Button colorScheme="green" size="lg">
             Try it!
@@ -71,6 +72,7 @@ function JavaScript() {
           href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
           isExternal
           style={linkStyles}
+          target="blank"
         >
           <Button colorScheme="purple" size="lg">
             Learn More

@@ -8,6 +8,7 @@ import JavaScript from './pages/JavaScript';
 import MySQL from './pages/SQL';
 import React from './pages/React';
 import Login from './components/Login';
+import Signup from './components/Signup'
 import App from './App.jsx';
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: 'Login',
         element: <Login />,
+      },
+      {
+        path: 'Signup',
+        element: <Signup />,
       },
 
     ]
