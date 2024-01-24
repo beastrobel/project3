@@ -55,7 +55,7 @@ function Login () {
                 <FormControl isInvalid={form.errors.password && form.touched.password}>
                   <FormLabel>Password</FormLabel>
                     <Input {...field} placeholder='password' />
-                  <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                  <FormErrorMessage>{form.errors.password}</FormErrorMessage>
                 </FormControl>
               )}
             </Field>

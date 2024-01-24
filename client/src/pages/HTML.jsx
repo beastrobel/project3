@@ -60,6 +60,7 @@ function HTML() {
           href="https://www.w3schools.com/tryit/tryit.asp?filename=tryhtml_hello"
           isExternal
           style={linkStyles}
+          target="blank"
         >
           <Button colorScheme="green" size="lg">
             Try it!
@@ -69,6 +70,7 @@ function HTML() {
           href="https://developer.mozilla.org/en-US/docs/Web/HTML"
           isExternal
           style={linkStyles}
+          target="blank"
         >
           <Button colorScheme="purple" size="lg">
             Learn More

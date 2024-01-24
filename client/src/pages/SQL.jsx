@@ -62,12 +62,13 @@ function SQL() {
           href="https://sqlfiddle.com/mysql/online-compiler"
           isExternal
           style={linkStyles}
+          target="blank"
         >
           <Button colorScheme="green" size="lg">
             Try it!
           </Button>
         </Link>
-        <Link href="https://dev.mysql.com/doc/" isExternal style={linkStyles}>
+        <Link href="https://dev.mysql.com/doc/" isExternal style={linkStyles} target="blank">
           <Button colorScheme="purple" size="lg">
             Learn More
           </Button>

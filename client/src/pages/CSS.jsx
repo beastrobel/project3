@@ -1,4 +1,4 @@
-import { Container, Box, Heading, Text, Button, Link, Center, Image } from "@chakra-ui/react";
+import { Container, Box, Heading, Text, Button, Link, Image } from "@chakra-ui/react";
 
 function CSS() {
   const boxStyles = {
@@ -61,6 +61,7 @@ function CSS() {
           href="https://www.w3schools.com/css/tryit.asp?filename=trycss_intro"
           isExternal
           style={linkStyles}
+          target="blank"
         >
           <Button colorScheme="green" size="lg">
             Try it!
@@ -70,6 +71,7 @@ function CSS() {
           href="https://developer.mozilla.org/en-US/docs/Web/CSS"
           isExternal
           style={linkStyles}
+          target="blank"
         >
           <Button colorScheme="purple" size="lg">
             Learn More
