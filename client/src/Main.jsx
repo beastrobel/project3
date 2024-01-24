@@ -5,7 +5,7 @@ import CSS from './pages/CSS';
 import HomePage from './pages/Homepage';
 import HTML from './pages/HTML';
 import JavaScript from './pages/JavaScript';
-import MySQL from './pages/MySQL';
+import SQL from './pages/SQL';
 import React from './pages/React';
 import App from './App.jsx';
 
@@ -13,7 +13,6 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <NotFound />,
     children: [
       {
         index:true,
@@ -32,8 +31,8 @@ const router = createBrowserRouter([
         element: <JavaScript />,
       },
       {
-        path: '/MySQL',
-        element: <MySQL />,
+        path: '/SQL',
+        element: <SQL />,
       },
       {
         path: 'React',
