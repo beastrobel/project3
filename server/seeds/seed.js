@@ -8,7 +8,7 @@ db.once('open', async () => {
     try{
         await cleanDB('Profile', 'profiles');
 
-        await cleanDB('Question', 'Questions');
+        await cleanDB('Question', 'questions');
 
         await Profile.create(profileSeeds);
 
