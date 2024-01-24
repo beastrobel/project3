@@ -1,4 +1,4 @@
-import { Container, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
+import { Container, Box, Heading, Text, Button, Link, Center, Image } from "@chakra-ui/react";
 
 function CSS() {
   const boxStyles = {
@@ -12,13 +12,34 @@ function CSS() {
     marginRight: "10px",
   };
 
+  const heroBoxStyles= {
+    bgColor: "black",
+    h: "300px",
+    position: "relative",
+
+  };
+
+  const heroTextStyles= {
+    color: "white",
+    fontSize: "5xl",
+    pos: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%,-50%)",
+  };
+
+  const imageStyles={
+    boxSize: "full",
+    opacity: "60%", 
+    blendMode: "screen",
+  }
+
   return (
     <Box as="section">
-      <div className="hero-image">
-        <div className="hero-text">
-          <Heading color="white">CSS</Heading>
-        </div>
-      </div>
+      <Box sx={heroBoxStyles}>
+          <Image src="/CSS.png" sx={imageStyles} />
+          <Heading as="h1" sx={heroTextStyles}>CSS</Heading>
+      </Box>   
       <Container maxWidth="md" py="50px">
         <Text>
           CSS, or Cascading Style Sheets, serves as the styling language in web

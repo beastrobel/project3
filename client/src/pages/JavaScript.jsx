@@ -1,4 +1,4 @@
-import { Container, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
+import { Container, Box, Heading, Text, Button, Link, Image } from "@chakra-ui/react";
 
 function JavaScript() {
   const boxStyles = {
@@ -12,13 +12,34 @@ function JavaScript() {
     marginRight: "10px",
   };
 
+  const heroBoxStyles= {
+    bgColor: "black",
+    h: "300px",
+    position: "relative",
+
+  };
+
+  const heroTextStyles= {
+    color: "white",
+    fontSize: "5xl",
+    pos: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%,-50%)",
+  };
+
+  const imageStyles={
+    boxSize: "full",
+    opacity: "60%", 
+    blendMode: "screen",
+  }
+
   return (
     <Box as="section">
-      <div className="hero-image">
-        <div className="hero-text">
-          <Heading color="white">JavaScript</Heading>
-        </div>
-      </div>
+      <Box sx={heroBoxStyles}>
+          <Image src="/JS.jpg" sx={imageStyles} />
+          <Heading as="h1" sx={heroTextStyles}>JavaScript</Heading>
+      </Box>  
       <Container maxWidth="md" py="50px">
         <Text>
           JavaScript is a coding language mainly used for making websites
