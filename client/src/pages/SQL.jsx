@@ -1,8 +1,15 @@
-import { Container, Box, Heading, Text } from "@chakra-ui/react";
+import { Container, Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 
 function MySQL() {
   const boxStyles = {
     p: "10px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
+  const linkStyles = {
+    marginRight: "10px",
   };
 
   return (
@@ -33,15 +40,13 @@ function MySQL() {
         <Link
           href="https://sqlfiddle.com/mysql/online-compiler"
           isExternal
+          style={linkStyles}
         >
-          <Button colorScheme="Pink" size="lg">
+          <Button colorScheme="green" size="lg">
             Try it!
           </Button>
         </Link>
-        <Link
-          href="https://dev.mysql.com/doc/"
-          isExternal
-        >
+        <Link href="https://dev.mysql.com/doc/" isExternal style={linkStyles}>
           <Button colorScheme="purple" size="lg">
             Learn More
           </Button>
