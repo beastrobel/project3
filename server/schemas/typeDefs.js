@@ -1,15 +1,15 @@
 const typeDefs = `
     type Profile{
         _id: ID!
-        name: String!
+        username: String!
         password: String
-        questions:[Questions]
+        questions:[Question]
     }
 
-    type Questions {
+    type Question{
         _id: ID!
-        question: String!
-        answer: String
+        questionText: String!
+        questionAuthor: String
         comment: [Comment]
     }
 
@@ -27,23 +27,23 @@ const typeDefs = `
 
     type Query {
         profiles: [Profile]
-        profile(username: String!): Profile
-        questions( username: String): [Questions]
-        question(questionId: ID!): question
+        profile( username: String! ): Profile
+        questions( username: String ): [Question]
+        question( questionId: ID! ): Question
 
     }
 
     type Mutation {
-        addProfile(username: String!, password: String!): Auth
-        login( username: String!, password: String!): Auth
-        addQuestion( questionText: String!, questionAuthor: String!): Question
+        addProfile( username: String!, password: String! ): Auth
+        login( username: String!, password: String! ): Auth
+        addQuestion( questionText: String!, questionAuthor: String! ): Question
         addComment(
             questionId: ID!
             commentText: String!
             commentAuthor: String!
         ): Question
-        removeQuestion(questionId: ID!): Question
-        removeComment(questionId: ID!, commentId: ID!): Question
+        removeQuestion( questionId: ID! ): Question
+        removeComment( questionId: ID!, commentId: ID! ): Question
     }
 `;
 

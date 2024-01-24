@@ -1,4 +1,4 @@
-const { Profile, Questions} = require('../models');
+const { Profile, Question } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -6,8 +6,8 @@ const resolvers = {
         profiles: async () => {
             return Profile.find().populate('questions');
         },
-        profile: async (parent, { userName }) => {
-            return Profile.findOne({ userName }).populate('questions');
+        profile: async (parent, { username }) => {
+            return Profile.findOne({ username }).populate('questions');
         },
         questions: async (parent, { username }) => {
             const params = username ? { username } : {};
@@ -18,8 +18,8 @@ const resolvers = {
         },
     },
 
-    Mutations: {
-        addUser: async (parent, {username, password}) => {
+    Mutation: {
+        addProfile: async (parent, {username, password}) => {
             const user = await Profile.create({ username, password});
             const token = signToken(user);
             return { token, user };
@@ -41,11 +41,11 @@ const resolvers = {
 
             return { token, user };
         },
-        addQuestion: async (parent, { question, author }) => {
-            const quest = await Question.create({ question, author });
+        addQuestion: async (parent, { questionText, questionAuthor }) => {
+            const question = await Question.create({ questionText, questionAuthor });
 
             await Profile.findOneAndUpdate(
-                { username: author },
+                { username: questionAuthor },
                 { $addToSet: { questions: question.id }}
             );
 
@@ -57,14 +57,11 @@ const resolvers = {
                 {
                     $addToSet: { comments: { commentText, commentAuthor }},
                 },
-                {
-                    new:tyue,
-                    runValidators: true,
-                }
+                {   new:true, runValidators: true,  }
             );
         },
-        removeQuestion: async (parent, { QuestionId }) => {
-            return Question.findOneAndDelete({ _id: thoughtId });
+        removeQuestion: async (parent, { questionId }) => {
+            return Question.findOneAndDelete({ _id: questionId });
         },
         removeComment: async (parent, { questionId, commentId }) => {
             return Question.findOneAndUpdate(
