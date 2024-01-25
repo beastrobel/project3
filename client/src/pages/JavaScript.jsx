@@ -30,6 +30,7 @@ function JavaScript() {
 
   const imageStyles={
     boxSize: "full",
+    objectFit: 'cover',
     opacity: "60%", 
     blendMode: "screen",
   }
@@ -64,7 +65,7 @@ function JavaScript() {
           style={linkStyles}
           target="blank"
         >
-          <Button colorScheme="green" size="lg">
+          <Button colorScheme="teal" size="lg">
             Try it!
           </Button>
         </Link>

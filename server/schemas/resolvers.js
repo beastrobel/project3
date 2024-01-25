@@ -18,7 +18,7 @@ const resolvers = {
         },
     },
 
-    Mutations: {
+    Mutation: {
         addProfile: async (parent, {username, password}) => {
             const user = await Profile.create({ username, password});
             const token = signToken(user);

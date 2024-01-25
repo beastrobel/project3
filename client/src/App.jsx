@@ -2,10 +2,11 @@ import { Outlet } from 'react-router-dom';
 import { ApolloClient , InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { ChakraProvider } from '@chakra-ui/react';
 import '@fontsource-variable/figtree';
+import '@fontsource/audiowide';
 import { setContext } from '@apollo/client/link/context';
 import theme from './components/Theme';
 import Navbar from './components/Navbar';
-import Footer from './components/footer/Footer';
+import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
     uri: '/graphql',
