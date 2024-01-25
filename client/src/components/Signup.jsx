@@ -29,7 +29,7 @@ function validatePassword(value) {
 
 return(
    <Container maxWidth="md" py="50px">
-   <Heading>Sign Up</Heading>
+   <Heading>Sign Up</Heading><br/>
    <Formik
    initialValues={{ username: '', password: '' }}
    onSubmit={(values, actions) => {
@@ -49,7 +49,7 @@ return(
              <FormErrorMessage>{form.errors.username}</FormErrorMessage>
            </FormControl>
          )}
-       </Field>
+       </Field><br/>
        <Field name='password' validate={validatePassword}>
          {({ field, form }) => (
            <FormControl isInvalid={form.errors.password && form.touched.password}>
@@ -58,10 +58,10 @@ return(
              <FormErrorMessage>{form.errors.password}</FormErrorMessage>
            </FormControl>
          )}
-       </Field>
+       </Field><br/>
        <Button
          mt={4}
-         colorScheme='purple'
+         colorScheme='teal'
          isLoading={props.isSubmitting}
          type='submit'
        >

@@ -10,20 +10,21 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@apollo/client": "^3.8.10",
+        "@apollo/client": "^3.7.14",
         "@chakra-ui/icons": "^2.1.1",
         "@chakra-ui/react": "^2.8.2",
         "@emotion/react": "^11.11.3",
         "@emotion/styled": "^11.11.0",
         "@fontsource-variable/figtree": "^5.0.19",
+        "@fontsource/audiowide": "^5.0.18",
         "@fontsource/open-sans": "^5.0.22",
         "formik": "^2.4.5",
         "framer-motion": "^10.18.0",
         "graphql": "^16.8.1",
+        "jwt-decode": "^4.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-router-dom": "^6.21.3",
-        "@apollo/client": "^3.7.14"
+        "react-router-dom": "^6.21.3"
     },
     "devDependencies": {
         "@types/react": "^18.0.28",

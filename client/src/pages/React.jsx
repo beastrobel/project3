@@ -30,6 +30,7 @@ function ReactComponent() {
 
   const imageStyles={
     boxSize: "full",
+    objectFit: 'cover',
     opacity: "60%", 
     blendMode: "screen",
   }
@@ -58,7 +59,7 @@ function ReactComponent() {
       </Container>
       <Box sx={boxStyles}>
         <Link href="https://react.dev/learn" isExternal style={linkStyles} target="blank">
-          <Button colorScheme="green" size="lg">
+          <Button colorScheme="teal" size="lg">
             Try it!
           </Button>
         </Link>
