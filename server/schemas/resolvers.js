@@ -24,7 +24,7 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        login: async (parent, { username, password }) => {
+        loginProfile: async (parent, { username, password }) => {
             const user = await Profile.findOne({ username });
 
             if (!user) {

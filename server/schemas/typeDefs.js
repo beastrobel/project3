@@ -35,7 +35,7 @@ const typeDefs = `
 
     type Mutation {
         addProfile( username: String!, password: String! ): Auth
-        login( username: String!, password: String! ): Auth
+        loginProfile( username: String!, password: String! ): Auth
         addQuestion( questionText: String!, questionAuthor: String! ): Question
         addComment(
             questionId: ID!
