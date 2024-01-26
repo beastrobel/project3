@@ -12,9 +12,9 @@ import { Container,
 import { Field, Form, Formik } from 'formik';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-// import { useMutation } from '@apollo/client';
-// import { LOGIN_PROFILE } from './utils/mutations';
-//import Auth from './utils/auth';
+import { useMutation } from '@apollo/client';
+import { LOGIN_PROFILE } from './utils/mutations';
+import Auth from './utils/auth';
 
 const loginStyles = {
   bgColor: "purple.800",
@@ -28,7 +28,8 @@ const loginStyles = {
   color: "white", 
 }
 
-function Login(props) {
+const Login = (props) => {
+
   function validateUsername(value) {
     let error
     if (!value) {
@@ -45,29 +46,34 @@ function Login(props) {
       return error
     }
 
-  // const [formState, setFormState] = useState({ username: '', password: '' });
-  // const [login, { error }] = useMutation(LOGIN_PROFILE);
+  const [formState, setFormState] = useState({ username: '', password: '' });
+  const [login, { error, data }] = useMutation(LOGIN_PROFILE);
 
-  // const handleFormSubmit = async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     const mutationResponse = await login({
-  //       variables: { username: formState.username, password: formState.password },
-  //     });
-  //     const token = mutationResponse.data.login.token;
-  //     Auth.login(token);
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await login({
+        variables: { username: formState.username, password: formState.password },
+      });
+    
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
+    }
 
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setFormState({
-  //     ...formState,
-  //     [name]: value,
-  //   });
-  // };
+    setFormState({
+      username: '',
+      password: '',
+    });
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
   return (
     <Box sx={loginStyles}>
@@ -84,7 +90,7 @@ function Login(props) {
     }}
   >
     {(props) => (
-      <Form /* onSubmit={handleSubmit} */>
+      <Form  onSubmit={handleFormSubmit} >
         <Field name='username' validate={validateUsername}>
           {({ field, form }) => (
             <FormControl isInvalid={form.errors.username && form.touched.username}>
@@ -105,14 +111,13 @@ function Login(props) {
             </FormControl>
           )}
         </Field><br/>
-        <Link to="/Dashboard"><Button
+        <Button
           mt={4}
           colorScheme='teal'
           isLoading={props.isSubmitting}
-          type='submit'
-        >
+          type='submit'>                    
           Log In
-        </Button></Link>
+        </Button>
       </Form>
     )}
   </Formik>
