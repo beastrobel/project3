@@ -1,65 +1,75 @@
 import { Container, 
-    Box, 
-    Heading, 
-    Text,  
-    Input, 
-    Button,
-    FormControl,
-    FormLabel,
-    FormErrorMessage,
-    FormHelperText, } from "@chakra-ui/react";
-import { Field, Form, Formik } from 'formik';
+  Box, 
+  Heading, 
+  Text,
+  Input, 
+  Button,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText, } from "@chakra-ui/react";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import Auth from './utils/auth';
+import { ADD_PROFILE } from './utils/mutations';
 
-function Signup () {
-function validateUsername(value) {
- let error
- if (!value) {
-   error = 'Username is required'
- } 
- return error
-}
+function Signup(props) {
+  const [formState, setFormState] = useState({ username: '', password: '' });
+  const [addProfile] = useMutation(ADD_PROFILE);
 
-function validatePassword(value) {
-   let error
-   if (!value) {
-     error = 'Password is required'
-   }
-   return error
- }
+  const navigate = useNavigate();
+  
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+    const mutationResponse = await addProfile({
+      variables: {
+        username: formState.username,
+        password: formState.password,
+      },
+    });
+    console.log('success!')
+    navigate("/login");
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-return(
-   <Container maxWidth="md" py="50px">
-   <Heading>Sign Up</Heading><br/>
-   <Formik
-   initialValues={{ username: '', password: '' }}
-   onSubmit={(values, actions) => {
-     setTimeout(() => {
-       alert(JSON.stringify(values, null, 2))
-       actions.setSubmitting(false)
-     }, 1000)
-   }}
- >
-   {(props) => (
-     <Form>
-       <Field name='username' validate={validateUsername}>
-         {({ field, form }) => (
-           <FormControl isInvalid={form.errors.username && form.touched.username}>
-             <FormLabel>Username</FormLabel>
-               <Input {...field} placeholder='username ' />
-             <FormErrorMessage>{form.errors.username}</FormErrorMessage>
-           </FormControl>
-         )}
-       </Field><br/>
-       <Field name='password' validate={validatePassword}>
-         {({ field, form }) => (
-           <FormControl isInvalid={form.errors.password && form.touched.password}>
-             <FormLabel>Password</FormLabel>
-               <Input {...field} placeholder='password' />
-             <FormErrorMessage>{form.errors.password}</FormErrorMessage>
-           </FormControl>
-         )}
-       </Field><br/>
-       <Button
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+  console.log(formState);
+
+  return (
+    <Container maxWidth="md" py="50px">
+    <Heading>Sign Up</Heading><br/>
+      <form onSubmit={handleFormSubmit}>
+        <div className="flex-row space-between my-2">
+          <FormLabel as="label" htmlFor="username">Username:</FormLabel>
+          <Input
+            placeholder="username"
+            name="username"
+            type="text"
+            id="username"
+            onChange={handleChange}
+          />
+        </div><br/>
+        <div className="flex-row space-between my-2">
+          <FormLabel as="label" htmlFor="pwd">Password:</FormLabel>
+          <Input
+            placeholder="******"
+            name="password"
+            type="password"
+            id="pwd"
+            onChange={handleChange}
+          />
+        </div><br/>
+        <Button
          mt={4}
          colorScheme='teal'
          isLoading={props.isSubmitting}
@@ -67,11 +77,9 @@ return(
        >
          Submit
        </Button>
-     </Form>
-   )}
- </Formik>
- </Container>
-)
+      </form>
+      </Container>
+  );
 }
 
 export default Signup;
