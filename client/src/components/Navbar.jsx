@@ -16,6 +16,7 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import Auth from "../components/utils/auth";
 
 const navStyles = {
     p: "10px",
@@ -42,6 +43,18 @@ const burgerNavStyles = {
 
 
 function Navbar() {
+
+    function showNavigation() {
+        if (Auth.loggedIn()) {
+          return (
+            <CustomLink to="/"><Button colorScheme="teal" spacing="10px" onClick={() => Auth.logout()}>Log Out</Button></CustomLink>
+          );
+        } else {
+          return (
+             <CustomLink to="/Login"><Button colorScheme="teal" spacing="10px">Log In</Button></CustomLink>
+          );
+        }
+      }
 
     return (
         <Flex as="nav" sx ={navStyles}>
@@ -76,8 +89,7 @@ function Navbar() {
             <Spacer />
 
             
-           
-            <CustomLink to="/Login"><Button colorScheme="teal" spacing="10px">Login</Button></CustomLink>
+           {showNavigation()}
             
 
             </Menu>

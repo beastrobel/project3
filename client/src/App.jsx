@@ -8,6 +8,8 @@ import theme from './components/Theme';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
+import { UserProvider } from './components/utils/GlobalState';
+
 const httpLink = createHttpLink({
     uri: '/graphql',
 })
@@ -32,11 +34,13 @@ function App() {
     return (
         <ChakraProvider theme={theme}>
             <ApolloProvider client={client}>
+            <UserProvider>
                 <Navbar/>
                 <div className='container'>
                     <Outlet />
                 </div>
                 <Footer/>
+                </UserProvider>
             </ApolloProvider>
         </ChakraProvider >
     );    
