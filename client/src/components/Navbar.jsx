@@ -8,10 +8,10 @@ import {
     MenuList, 
     Spacer, 
     Button,
-    HStack,
     Image,
     Text,
     Box,
+    useMediaQuery,
     } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
@@ -27,7 +27,6 @@ const navStyles = {
 const iconStyles = {
     h: "45px", 
     w: "45px", 
-    display: "flex",
 };
 
 const burgerStyles = {
@@ -43,15 +42,6 @@ const burgerNavStyles = {
 
 
 function Navbar() {
-
-    const pages = ['HTML', 'CSS', 'JavaScript', 'SQL', 'React']
-
-    function explore(max) {
-    return Math.floor(Math.random() * max);
-    }
-
-    let randomPage = `/${pages[explore(5)]}`;
-    console.log(randomPage) 
 
     return (
         <Flex as="nav" sx ={navStyles}>
@@ -85,10 +75,10 @@ function Navbar() {
             
             <Spacer />
 
-            <HStack spacing="10px">
-            <Link to={randomPage}><Button colorScheme="purple" onClick={explore}>Explore<span className="material-symbols-outlined">rocket_launch</span></Button></Link>
+            
+           
             <CustomLink to="/Login"><Button colorScheme="teal" spacing="10px">Login</Button></CustomLink>
-            </HStack>
+            
 
             </Menu>
 
