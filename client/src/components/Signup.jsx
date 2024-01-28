@@ -75,7 +75,7 @@ function Signup(props) {
          isLoading={props.isSubmitting}
          type='submit'
        >
-         Submit
+         Sign Up
        </Button>
       </form>
       </Container>

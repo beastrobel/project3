@@ -31,7 +31,7 @@ function SQL() {
   const imageStyles={
     boxSize: "full",
     objectFit: 'cover',
-    opacity: "60%", 
+    opacity: "40%", 
     blendMode: "screen",
   }
 

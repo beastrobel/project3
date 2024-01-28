@@ -35,12 +35,12 @@ function Login(props) {
     event.preventDefault();
     try {
       const mutationResponse = await login({
-        variables: { username: formState.username, password: formState.password },
+         variables: {username: formState.username, password: formState.password},
       });
+      const token = mutationResponse.data.loginProfile.token;
+      Auth.login(token);
       console.log('success!')
       navigate("/dashboard");
-      // const token = mutationResponse.data.login.token;
-      // Auth.login(token);
     } catch (e) {
       console.log(e);
     }
@@ -53,8 +53,6 @@ function Login(props) {
       [name]: value,
     });
   };
-
-  console.log(formState);
 
   return (
     <Box sx={loginStyles}>
@@ -90,7 +88,6 @@ function Login(props) {
           <Button
             mt={4}
             colorScheme='teal'
-            isLoading={props.isSubmitting}
             type='submit'>                    
             Log In
           </Button>
