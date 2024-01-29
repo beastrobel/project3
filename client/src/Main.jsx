@@ -7,7 +7,7 @@ import HTML from './pages/HTML';
 import JavaScript from './pages/JavaScript';
 import SQL from './pages/SQL';
 import ReactComponent from './pages/React';
-import Dashboard from './pages/Dashboard';
+import PrivateRoute from './components/utils/PrivateRoute.jsx';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import App from './App.jsx';
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/Dashboard',
-        element: <Dashboard />,
+        element: <PrivateRoute />,
       },
     ]
   }

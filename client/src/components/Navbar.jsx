@@ -15,9 +15,9 @@ import {
     } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 import Auth from "../components/utils/auth";
 
+//Chakra UI Styling
 const navStyles = {
     p: "10px",
     alignItems: "center",
@@ -40,19 +40,35 @@ const burgerNavStyles = {
     border: "none",
 };
 
-
-
 function Navbar() {
 
     function showNavigation() {
         if (Auth.loggedIn()) {
-          return (
-            <CustomLink to="/"><Button colorScheme="teal" spacing="10px" onClick={() => Auth.logout()}>Log Out</Button></CustomLink>
-          );
+            return (
+                <>
+                <Menu>
+                    <MenuButton
+                        as={IconButton}
+                        aria-label='Options'
+                        icon=""
+                        variant='outline'
+                        sx={burgerStyles}
+                        _hover= {{bg: "purple.800"}}
+                        _active= {{bg: "purple.800"}}
+                        >
+                        <span className="material-symbols-outlined">account_circle</span>
+                    </MenuButton>
+                    <MenuList sx={burgerNavStyles} >
+                        <CustomLink to="/Dashboard"><MenuItem sx={burgerNavStyles} _hover= {{bg: "purple.900"}}>My Profile</MenuItem></CustomLink>
+                        <CustomLink to="/"><MenuItem sx={burgerNavStyles} _hover= {{bg: "purple.900"}} onClick={() => Auth.logout()}>Log Out</MenuItem></CustomLink>
+                    </MenuList>
+                </Menu>
+                </>
+            );
         } else {
-          return (
-             <CustomLink to="/Login"><Button colorScheme="teal" spacing="10px">Log In</Button></CustomLink>
-          );
+            return (
+                <CustomLink to="/Login"><Button colorScheme="teal" spacing="10px">Log In</Button></CustomLink>
+            );
         }
       }
 
@@ -74,24 +90,19 @@ function Navbar() {
                     <CustomLink to="/JavaScript"><MenuItem sx={burgerNavStyles} _hover= {{bg: "purple.900"}}>JavaScript</MenuItem></CustomLink>
                     <CustomLink to="/SQL"><MenuItem sx={burgerNavStyles} _hover= {{bg: "purple.900"}}>SQL</MenuItem ></CustomLink>
                     <CustomLink to="/React"><MenuItem sx={burgerNavStyles} _hover= {{bg: "purple.900"}}>React</MenuItem></CustomLink>
-            </MenuList>
-            <CustomLink to="/">
-                <Flex>
-                    <Box>
-                        <Image src="/planetfavicon.png" sx={iconStyles} />
-                    </Box> 
-                    <Box>
-                        <Heading display="flex" size="md" ml="20px">The Programmer's Guide <br/>to the Galaxy</Heading>
-                    </Box>   
-                </Flex>    
-            </CustomLink>
-            
-            <Spacer />
-
-            
-           {showNavigation()}
-            
-
+                </MenuList>
+                <CustomLink to="/">
+                    <Flex>
+                        <Box>
+                            <Image src="/planetfavicon.png" sx={iconStyles} />
+                        </Box> 
+                        <Box>
+                            <Heading display="flex" size="md" ml="20px">The Programmer's Guide <br/>to the Galaxy</Heading>
+                        </Box>   
+                    </Flex>    
+                </CustomLink>
+                <Spacer />
+                {showNavigation()}
             </Menu>
 
         </Flex>
@@ -105,7 +116,6 @@ function CustomLink({ to, children, ...props}) {
             </Link>
         )
 }
-
 
 export default Navbar;
 

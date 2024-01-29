@@ -1,0 +1,41 @@
+.background {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("andy-holmes-rCbdp8VCYhQ-unsplash.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.error {
+    color: white;
+    font-family: 'Figtree Variable', 'sans serif';
+    font-size: 20px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.errorBtn {
+    background-color: #805AD5;
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+    color: white;
+    font-family: 'Figtree Variable', 'sans serif';
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+}
+
+.errorBtn:hover {
+    background-color: #553C9A;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}

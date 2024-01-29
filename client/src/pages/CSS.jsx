@@ -1,39 +1,41 @@
 import { Container, Box, Heading, Text, Button, Link, Image } from "@chakra-ui/react";
 
+//Chakra UI Styling
+const boxStyles = {
+  p: "10px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+};
+
+const linkStyles = {
+  marginRight: "10px",
+};
+
+const heroBoxStyles= {
+  bgColor: "black",
+  h: "300px",
+  position: "relative",
+
+};
+
+const heroTextStyles= {
+  color: "white",
+  fontSize: "5xl",
+  pos: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%,-50%)",
+};
+
+const imageStyles={
+  boxSize: "full",
+  objectFit: 'cover',
+  opacity: "40%", 
+  blendMode: "screen",
+};
+
 function CSS() {
-  const boxStyles = {
-    p: "10px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  };
-
-  const linkStyles = {
-    marginRight: "10px",
-  };
-
-  const heroBoxStyles= {
-    bgColor: "black",
-    h: "300px",
-    position: "relative",
-
-  };
-
-  const heroTextStyles= {
-    color: "white",
-    fontSize: "5xl",
-    pos: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%,-50%)",
-  };
-
-  const imageStyles={
-    boxSize: "full",
-    objectFit: 'cover',
-    opacity: "40%", 
-    blendMode: "screen",
-  }
 
   return (
     <Box as="section">
@@ -80,6 +82,7 @@ function CSS() {
         </Link>
       </Box>
     </Box>
+
   );
 }
 

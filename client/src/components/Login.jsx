@@ -10,9 +10,11 @@ import { Container,
 import { useState } from 'react';
 // import { useUserContext } from "../../utils/GlobalState";
 import { useMutation } from '@apollo/client';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { LOGIN_PROFILE } from './utils/mutations';
 import Auth from './utils/auth';
+import { useDispatch, useSelector } from "react-redux";
+import { userAdded } from "./users/usersSlice";
 
 const loginStyles = {
   bgColor: "purple.800",
@@ -27,9 +29,12 @@ const loginStyles = {
 }
 
 function Login(props) {
+
+  const dispatch = useDispatch()
+
   const [formState, setFormState] = useState({ username: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_PROFILE);
-  const navigate = useNavigate();
+  const [username, setUsername] = useState('');
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -40,7 +45,13 @@ function Login(props) {
       const token = mutationResponse.data.loginProfile.token;
       Auth.login(token);
       console.log('success!')
-      navigate("/dashboard");
+      if (formState.username) {
+        console.log("Dispatching user:", formState.username);
+          dispatch(
+              userAdded(formState.username)
+          )
+      }
+      console.log("User:", formState.username);
     } catch (e) {
       console.log(e);
     }
@@ -51,6 +62,10 @@ function Login(props) {
     setFormState({
       ...formState,
       [name]: value,
+    });
+    setUsername({
+      ...username,
+      username: value,
     });
   };
 
@@ -88,7 +103,8 @@ function Login(props) {
           <Button
             mt={4}
             colorScheme='teal'
-            type='submit'>                    
+            type='submit'
+            >                    
             Log In
           </Button>
         </form>
