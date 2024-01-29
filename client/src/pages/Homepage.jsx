@@ -11,6 +11,7 @@ import Signup from "../components/Signup";
 import FAQ from "../components/FAQ";
 import { Link } from 'react-router-dom';
 
+//Chakra UI Styling
 const heroBoxStyles = {
   bgGradient: "linear(to-tl, blue.900, purple.900)",
   h: "600px",
@@ -24,7 +25,6 @@ const heroTextStyles = {
   top: "20%",
   transform: "translate(-50%, -50%)",
 };
-
 
 const imageStyles = {
   boxSize: "full",

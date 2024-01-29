@@ -1,5 +1,6 @@
 const { Profile, Question } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
     Query: {
@@ -16,6 +17,20 @@ const resolvers = {
         question: async (parent, { questionId }) => {
             return Question.findOne({ _id: questionId});
         },
+
+        //Stripe
+        checkout: async (parent, args, context) => {
+            const url = new URL(context.headers.referer).origin;      
+            const session = await stripe.checkout.sessions.create({
+              payment_method_types: ['card'],
+              line_items,
+              mode: 'payment',
+              success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+              cancel_url: `${url}/`,
+            });
+      
+            return { session: session.id };
+          },
     },
 
     Mutation: {

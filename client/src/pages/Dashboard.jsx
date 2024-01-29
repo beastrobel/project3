@@ -5,7 +5,8 @@ import { Container,
     Button, 
     Link, 
     Center, 
-    Image } from "@chakra-ui/react";
+    Image,
+    Flex, } from "@chakra-ui/react";
 import { useQuery } from '@apollo/client';
 import { QUERY_PROFILE } from '../components/utils/queries';
 import { loadStripe } from '@stripe/stripe-js';
@@ -15,6 +16,7 @@ import Question from "../components/Question"
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
+//Chakra UI Styling
 const boxStyles = {
     bgColor: "teal.500",
     h: "300px",
@@ -74,20 +76,28 @@ function Dashboard() {
     return(
         <>
         <Box bgColor="gray.200" h="300px">
-        <Container sx={profileStyles}>
-        <Heading>Hello {/* {profile.username} */}!</Heading><br/>
-        <Text fontSize="18px">You are on light mode.<span className="material-symbols-outlined">light_mode</span></Text>
-        </Container>
+            <Container sx={profileStyles}>
+                <Flex>
+                    <Box>
+                        <Image src="/user.png" h="100px" />
+                    </Box>
+                    <Box pl="30px">
+                        <Heading>Hello {/* {profile.username} */}!</Heading>
+                        <Text fontSize="18px">You are on light mode.<span className="material-symbols-outlined">light_mode</span></Text>
+                        <Link color="purple">Profile settings</Link>
+                    </Box>
+                </Flex>
+            </Container>
         </Box>
         <Question />
         <Box sx={boxStyles}>
             <Container sx={donateText}>
-            <Heading>Unlock new features!</Heading>
-            <Text>For just $1 a month, you will have unlimited access to quizzes and profile customization!</Text><br/>
-            <form action="/create-checkout-session" method="POST">
-            <input type="hidden" name="lookup_key" value="{{PRICE_LOOKUP_KEY}}" />
-            <Button id="checkout-and-portal-button" type="submit" colorScheme="gray">Unlock <span className="material-symbols-outlined">key_vertical</span></Button>
-              </form>
+                <Heading>Unlock new features!</Heading>
+                <Text>For just $1 you can have access to quizzes and profile customization.</Text><br/>
+                <form action="/create-checkout-session" method="POST">
+                    <input type="hidden" name="lookup_key" value="{{PRICE_LOOKUP_KEY}}" />
+                    <Button id="checkout-and-portal-button" type="submit" colorScheme="gray">Unlock <span className="material-symbols-outlined">key_vertical</span></Button>
+                </form>
             </Container>
         </Box>   
         </>
