@@ -3,14 +3,7 @@ import { gql } from '@apollo/client';
 export const QUERY_PROFILE = gql`
  query Query($username: String!) {
      profile(username: $username) {
-        _id
         username
-        questions {
-            _id
-            questionText
-            questionAuthor
-            createdAt
-            }
         }
     }
 `;

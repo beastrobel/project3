@@ -7,8 +7,8 @@ import { setContext } from '@apollo/client/link/context';
 import theme from './components/Theme';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
-import { UserProvider } from './components/utils/GlobalState';
+import { store } from './app/store';
+import { Provider } from 'react-redux';
 
 const httpLink = createHttpLink({
     uri: '/graphql',
@@ -34,13 +34,13 @@ function App() {
     return (
         <ChakraProvider theme={theme}>
             <ApolloProvider client={client}>
-            <UserProvider>
-                <Navbar/>
-                <div className='container'>
-                    <Outlet />
-                </div>
-                <Footer/>
-                </UserProvider>
+                <Provider store={store}>
+                    <Navbar/>
+                    <div className='container'>
+                        <Outlet />
+                    </div>
+                    <Footer/>
+                </Provider>
             </ApolloProvider>
         </ChakraProvider >
     );    
