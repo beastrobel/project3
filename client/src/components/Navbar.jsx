@@ -47,7 +47,25 @@ function Navbar() {
     function showNavigation() {
         if (Auth.loggedIn()) {
           return (
-            <CustomLink to="/"><Button colorScheme="teal" spacing="10px" onClick={() => Auth.logout()}>Log Out</Button></CustomLink>
+            <>
+             <Menu>
+                <MenuButton
+                    as={IconButton}
+                    aria-label='Options'
+                    icon=""
+                    variant='outline'
+                    sx={burgerStyles}
+                    _hover= {{bg: "purple.800"}}
+                    _active= {{bg: "purple.800"}}
+                ><span className="material-symbols-outlined">account_circle</span></MenuButton>
+                <MenuList sx={burgerNavStyles} >
+                    <CustomLink to="/Dashboard"><MenuItem sx={burgerNavStyles} _hover= {{bg: "purple.900"}}>My Profile</MenuItem></CustomLink>
+                    <CustomLink to="/"><MenuItem sx={burgerNavStyles} _hover= {{bg: "purple.900"}} onClick={() => Auth.logout()}>Log Out</MenuItem></CustomLink>
+            </MenuList>
+            </Menu>
+            {/* <CustomLink to="/Dashboard"><Button colorScheme="purple" spacing="10px">Dashboard</Button></CustomLink>
+            <CustomLink to="/"><Button colorScheme="teal" spacing="10px" onClick={() => Auth.logout()}>Log Out</Button></CustomLink> */}
+            </>
           );
         } else {
           return (

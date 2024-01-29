@@ -10,7 +10,7 @@ import { Container,
 import { useState } from 'react';
 // import { useUserContext } from "../../utils/GlobalState";
 import { useMutation } from '@apollo/client';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { LOGIN_PROFILE } from './utils/mutations';
 import Auth from './utils/auth';
 
@@ -29,7 +29,6 @@ const loginStyles = {
 function Login(props) {
   const [formState, setFormState] = useState({ username: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_PROFILE);
-  const navigate = useNavigate();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -40,7 +39,6 @@ function Login(props) {
       const token = mutationResponse.data.loginProfile.token;
       Auth.login(token);
       console.log('success!')
-      navigate("/dashboard");
     } catch (e) {
       console.log(e);
     }

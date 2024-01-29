@@ -1,7 +1,7 @@
 import { Center, Box } from "@chakra-ui/react";
 
 const footerStyles={
-    pt:"50px",
+    p:"50px",
 }
 
 function Footer() {
