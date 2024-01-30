@@ -34,7 +34,8 @@ In this project we were tasked with applying concepts learned throughout past mo
 
 
 ## Deployed application
-- LIVE Deployment: https://programmers-guide-to-the-galaxy.onrender.com/
+- LIVE Deployment: [https://github.com/beastrobel/project3](https://programmers-guide-to-the-galaxy.onrender.com/)
+
 
 - ![demo](https://github.com/beastrobel/project3/assets/139593153/346cfac1-9bff-4ae3-9fa4-d822e4b30c9a)
 
