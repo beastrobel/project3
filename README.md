@@ -1,35 +1,74 @@
-# Project 3
+# A Programmers Guide to the Galaxy:
+
+## Badges
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Table of Contents
+
+- [License](#license)
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Questions?](#questions)
+
+## License
+
+Read more about MIT here:
+[MIT](https://opensource.org/licenses/MIT)
+
+## Objective
+
+Our primary goal for this project was to deploy a web application that would provide entry-level/beginner individuals
+basic resources and tools needed to help them begin their web development journey into coding. 
 
 ## Description
-Create a MERN-stack single-page application that works with real-world data to solve a real-world challenge, with a focus on data and user demand.
 
-## Acceptance Criteria
-Your project must fulfill the following requirements:
-* Use React for the front end.
-* Use GraphQL with a Node.js and Express.js server.
-* Use MongoDB and the Mongoose ODM for the database.
-* Use queries and mutations for retrieving, adding, updating, and deleting data.
-* Be deployed using Render (with data).
-* Have a polished UI.
-* Be responsive.
-* Be interactive (i.e., accept and respond to user input).
-* Include authentication (JWT).
-* Protect sensitive API key information on the server.
-* Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class and id naming conventions, indentation, high-quality comments, and so on).
-* Have a high-quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
+This application is a project assignment for the MSU Coding Bootcamp.
+In this project we were tasked with applying concepts learned throughout past modules to follow a given criteria.
 
-### CSS Styling
-Instead of using a CSS library like Bootstrap, consider one of the following suggestions:
-* Explore the concept of CSS-in-JS, which abstracts CSS to the component level, using JavaScript to describe styles in a declarative and maintainable way. Some popular libraries include styled-componentsLinks to an external site. and EmotionLinks to an external site..
-* Try using a component library, such as Semantic UILinks to an external site., Chakra UILinks to an external site., or Ant DesignLinks to an external site..
-* Create all the CSS for your application just using CSS.
-Ultimately, it doesn't matter which of these options you choose—it just needs to look professional and be mobile-friendly.
+* A user will connect to the site, and explore interactable content.
+* A user will be able to sign-up and login to the site.
+* The user will be able to create and view FAQ posts, and remove their comments.
 
-### Payment Platform
-Consider integrating the Stripe payment platform. Even if you don’t create an e-commerce application, you could set up your site to accept charitable donations.
 
-### Bonus
-Although this is not a requirement for your project, try to also implement functionality to meet the minimum requirements of a PWA:
-* Uses a web manifest.
-* Uses a service worker for offline functionality.
-* Is installable.
+
+## Deployed application
+- LIVE Deployment: (PLACEHOLDER URL:)
+
+- ![demo](https://github.com/beastrobel/project3/assets/139593153/346cfac1-9bff-4ae3-9fa4-d822e4b30c9a)
+
+## Installation
+
+Required applications:
+- Visual Studio Code: (https://code.visualstudio.com/)
+- Git for MAC/Windows/Linux: (https://git-scm.com/downloads)
+- NodeJS: (https://nodejs.org/en)
+- MySQL: (https://www.mysql.com/downloads/)
+- MongoDB: (https://www.mongodb.com/docs/manual/installation/)
+- React: (https://react.dev/learn/add-react-to-an-existing-project)
+- GraphQL: (https://graphql.org/code/#javascript)
+
+## Usage
+
+To use, first download the above required applications in [Installation](#installation).
+
+- Clone the repository to your local machine.
+- After cloning the repository, open the directory using Visual Studio Code.
+- Using node, install the required packages.
+- Create a .env file that has the required fields.
+- Intialize the database in Mysql & seed the data.
+- Run the command 'npm run dev' to initialize and startup the site in a local environment.
+
+## Contributors:
+- Project inspiration: https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy
+- Chakra UI documentation: https://chakra-ui.com/
+- Redux assistance from Dave Grey: https://www.youtube.com/watch?v=NqzdVN2tyvQ
+
+
+
+Group Participants:     
+- [Beatriz Strobel](https://github.com/beastrobel)
+- [Joshua Garnaat](https://github.com/Jgarnaat)
+- [Micah D. Hanchett](https://github.com/G303K)
+
