@@ -1,6 +1,7 @@
+import React from "react";
 import {
-  Container,
   Box,
+  Container,
   Heading,
   Text,
   Button,
@@ -8,7 +9,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 
-// Chakra UI Styling
+// Define Chakra UI styling objects
 const boxStyles = {
   p: "10px",
   display: "flex",
@@ -32,7 +33,7 @@ const heroTextStyles = {
   pos: "absolute",
   top: "50%",
   left: "50%",
-  transform: "translate(-50%,-50%)",
+  transform: "translate(-50%, -50%)",
 };
 
 const imageStyles = {
@@ -43,6 +44,7 @@ const imageStyles = {
 };
 
 function CSS() {
+  // Define styles for the text box
   const textBoxStyles = {
     background: "linear-gradient(to right, #8B5CF6, #9333EA)",
     borderRadius: "8px",
@@ -53,14 +55,17 @@ function CSS() {
 
   return (
     <Box as="section">
+      {/* Hero section with image and heading */}
       <Box sx={heroBoxStyles}>
         <Image src="/CSS.png" sx={imageStyles} />
         <Heading as="h1" sx={heroTextStyles}>
           CSS
         </Heading>
       </Box>
+
+      {/* Container for text content */}
       <Container maxWidth="md" py="50px" sx={textBoxStyles}>
-        {/* Styles applied to the text box */}
+        {/* Text content with styles */}
         <Text>
           CSS, or Cascading Style Sheets, serves as the styling language in web
           development. Its primary role is to enhance the visual aesthetics of
@@ -76,7 +81,10 @@ function CSS() {
           social media styling, and various other applications.
         </Text>
       </Container>
+
+      {/* Box with links and buttons */}
       <Box sx={boxStyles}>
+        {/* Link to W3Schools */}
         <Link
           href="https://www.w3schools.com/css/tryit.asp?filename=trycss_intro"
           isExternal
@@ -87,6 +95,8 @@ function CSS() {
             Try it!
           </Button>
         </Link>
+
+        {/* Link to MDN Web Docs */}
         <Link
           href="https://developer.mozilla.org/en-US/docs/Web/CSS"
           isExternal

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Container,
   Box,
@@ -8,7 +9,9 @@ import {
   Image,
 } from "@chakra-ui/react";
 
+// ReactComponent displaying information about React
 function ReactComponent() {
+  // Styling objects for different elements
   const boxStyles = {
     p: "10px",
     display: "flex",
@@ -52,14 +55,17 @@ function ReactComponent() {
 
   return (
     <Box as="section">
+      {/* Hero section with image and heading */}
       <Box sx={heroBoxStyles}>
         <Image src="/REACT.jpg" sx={imageStyles} />
         <Heading as="h1" sx={heroTextStyles}>
           React
         </Heading>
       </Box>
+
+      {/* Container for text content */}
       <Container maxWidth="md" py="50px" sx={textBoxStyles}>
-        {/* Styles applied to the text box */}
+        {/* Text content with styles */}
         <Text>
           React is a JavaScript library for building user interfaces. Developed
           by Facebook, React allows developers to create reusable UI components
@@ -75,7 +81,10 @@ function ReactComponent() {
           community for creating dynamic and responsive user interfaces.
         </Text>
       </Container>
+
+      {/* Box with links and buttons */}
       <Box sx={boxStyles}>
+        {/* Link to React documentation for trying React */}
         <Link
           href="https://react.dev/learn"
           isExternal
@@ -86,6 +95,8 @@ function ReactComponent() {
             Try it!
           </Button>
         </Link>
+
+        {/* Link to React documentation for learning more about React */}
         <Link
           href="https://react.dev/"
           isExternal

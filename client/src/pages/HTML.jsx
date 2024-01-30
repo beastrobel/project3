@@ -1,6 +1,17 @@
-import { Container, Box, Heading, Text, Button, Link, Image } from "@chakra-ui/react";
+import React from "react";
+import {
+  Container,
+  Box,
+  Heading,
+  Text,
+  Button,
+  Link,
+  Image,
+} from "@chakra-ui/react";
 
+// HTML component displaying information about HTML
 function HTML() {
+  // Styling objects for different elements
   const boxStyles = {
     p: "10px",
     display: "flex",
@@ -29,31 +40,32 @@ function HTML() {
 
   const imageStyles = {
     boxSize: "full",
-    objectFit: 'cover',
-    opacity: "40%", 
+    objectFit: "cover",
+    opacity: "40%",
     blendMode: "screen",
   };
 
-
   const textBoxStyles = {
-
     background: "linear-gradient(to right, #8B5CF6, #9333EA)",
     borderRadius: "8px",
     padding: "20px",
     marginTop: "20px",
-    color: "white", 
+    color: "white",
   };
 
   return (
     <Box as="section">
+      {/* Hero section with image and heading */}
       <Box sx={heroBoxStyles}>
         <Image src="/HTML.jpg" sx={imageStyles} />
         <Heading as="h1" sx={heroTextStyles}>
           HTML
         </Heading>
       </Box>
+
+      {/* Container for text content */}
       <Container maxWidth="md" py="50px" sx={textBoxStyles}>
-        {/* Styles applied to the text box */}
+        {/* Text content with styles */}
         <Text>
           HTML, or HyperText Markup Language, is the blueprint for web pages. It
           helps organize and describe content on the internet. With HTML, a user
@@ -68,7 +80,10 @@ function HTML() {
           online application.
         </Text>
       </Container>
+
+      {/* Box with links and buttons */}
       <Box sx={boxStyles}>
+        {/* Link to W3Schools */}
         <Link
           href="https://www.w3schools.com/tryit/tryit.asp?filename=tryhtml_hello"
           isExternal
@@ -79,6 +94,8 @@ function HTML() {
             Try it!
           </Button>
         </Link>
+
+        {/* Link to MDN Web Docs */}
         <Link
           href="https://developer.mozilla.org/en-US/docs/Web/HTML"
           isExternal

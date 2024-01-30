@@ -1,41 +1,46 @@
+/* Styling for a background with overlay and image */
 .background {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("andy-holmes-rCbdp8VCYhQ-unsplash.jpg");
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("andy-holmes-rCbdp8VCYhQ-unsplash.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
+/* Styling for error message */
 .error {
-    color: white;
-    font-family: 'Figtree Variable', 'sans serif';
-    font-size: 20px;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
+  color: white;
+  font-family: "Figtree Variable", "sans serif";
+  font-size: 20px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
+/* Styling for error button */
 .errorBtn {
-    background-color: #805AD5;
-    width: 100px;
-    height: 40px;
-    padding: 5px;
-    color: white;
-    font-family: 'Figtree Variable', 'sans serif';
-    font-size: 20px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 10px;
-    border: none;
+  background-color: #805ad5;
+  width: 100px;
+  height: 40px;
+  padding: 5px;
+  color: white;
+  font-family: "Figtree Variable", "sans serif";
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer; /* Added cursor property for better UX */
 }
 
+/* Hover state for the error button */
 .errorBtn:hover {
-    background-color: #553C9A;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
+  background-color: #553c9a;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
 }

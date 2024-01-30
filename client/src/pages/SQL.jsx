@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Container,
   Box,
@@ -8,7 +9,9 @@ import {
   Image,
 } from "@chakra-ui/react";
 
+// SQL component displaying information about SQL
 function SQL() {
+  // Styling objects for different elements
   const boxStyles = {
     p: "10px",
     display: "flex",
@@ -52,14 +55,17 @@ function SQL() {
 
   return (
     <Box as="section">
+      {/* Hero section with image and heading */}
       <Box sx={heroBoxStyles}>
         <Image src="/REACT.jpg" sx={imageStyles} />
         <Heading as="h1" sx={heroTextStyles}>
           SQL
         </Heading>
       </Box>
+
+      {/* Container for text content */}
       <Container maxWidth="md" py="50px" sx={textBoxStyles}>
-        {/* Styles applied to the text box */}
+        {/* Text content with styles */}
         <Text>
           SQL is like the language databases understand. It helps manage data by
           fetching specific information (SELECT), changing data (INSERT, UPDATE,
@@ -76,7 +82,10 @@ function SQL() {
           various industries.
         </Text>
       </Container>
+
+      {/* Box with links and buttons */}
       <Box sx={boxStyles}>
+        {/* Link to SQLFiddle for trying SQL queries */}
         <Link
           href="https://sqlfiddle.com/mysql/online-compiler"
           isExternal
@@ -87,6 +96,8 @@ function SQL() {
             Try it!
           </Button>
         </Link>
+
+        {/* Link to MySQL documentation for learning more about SQL */}
         <Link
           href="https://dev.mysql.com/doc/"
           isExternal

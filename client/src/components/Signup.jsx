@@ -1,41 +1,50 @@
-import { Container, 
-  Box, 
-  Heading, 
+import React, { useState } from "react";
+import {
+  Container,
+  Box,
+  Heading,
   Text,
-  Input, 
+  Input,
   Button,
   FormControl,
   FormLabel,
   FormErrorMessage,
-  FormHelperText, } from "@chakra-ui/react";
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
-import Auth from './utils/auth';
-import { ADD_PROFILE } from './utils/mutations';
+  FormHelperText,
+} from "@chakra-ui/react";
+import { useMutation } from "@apollo/client";
+import { Link, useNavigate } from "react-router-dom";
+import Auth from "./utils/auth";
+import { ADD_PROFILE } from "./utils/mutations";
 
+// Signup component
 function Signup(props) {
-  const [formState, setFormState] = useState({ username: '', password: '' });
+  // State for form input
+  const [formState, setFormState] = useState({ username: "", password: "" });
+  // Mutation hook for adding a profile
   const [addProfile] = useMutation(ADD_PROFILE);
-
+  // Navigation hook for redirection after successful signup
   const navigate = useNavigate();
-  
+
+  // Form submission handler
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-    const mutationResponse = await addProfile({
-      variables: {
-        username: formState.username,
-        password: formState.password,
-      },
-    });
-    console.log('success!')
-    navigate("/login");
+      // Perform the mutation to add the profile
+      const mutationResponse = await addProfile({
+        variables: {
+          username: formState.username,
+          password: formState.password,
+        },
+      });
+      console.log("success!");
+      // Redirect to the login page after successful signup
+      navigate("/login");
     } catch (e) {
       console.log(e);
     }
   };
 
+  // Input change handler
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
@@ -43,14 +52,20 @@ function Signup(props) {
       [name]: value,
     });
   };
+
+  // Log formState for debugging purposes
   console.log(formState);
 
   return (
     <Container maxWidth="md" py="50px">
-    <Heading>Sign Up</Heading><br/>
+      <Heading>Sign Up</Heading>
+      <br />
       <form onSubmit={handleFormSubmit}>
+        {/* Input field for the username */}
         <div className="flex-row space-between my-2">
-          <FormLabel as="label" htmlFor="username">Username:</FormLabel>
+          <FormLabel as="label" htmlFor="username">
+            Username:
+          </FormLabel>
           <Input
             placeholder="username"
             name="username"
@@ -58,9 +73,13 @@ function Signup(props) {
             id="username"
             onChange={handleChange}
           />
-        </div><br/>
+        </div>
+        <br />
+        {/* Input field for the password */}
         <div className="flex-row space-between my-2">
-          <FormLabel as="label" htmlFor="pwd">Password:</FormLabel>
+          <FormLabel as="label" htmlFor="pwd">
+            Password:
+          </FormLabel>
           <Input
             placeholder="******"
             name="password"
@@ -68,17 +87,19 @@ function Signup(props) {
             id="pwd"
             onChange={handleChange}
           />
-        </div><br/>
+        </div>
+        <br />
+        {/* Submit button */}
         <Button
-         mt={4}
-         colorScheme='teal'
-         isLoading={props.isSubmitting}
-         type='submit'
-       >
-         Sign Up
-       </Button>
+          mt={4}
+          colorScheme="teal"
+          isLoading={props.isSubmitting}
+          type="submit"
+        >
+          Sign Up
+        </Button>
       </form>
-      </Container>
+    </Container>
   );
 }
 

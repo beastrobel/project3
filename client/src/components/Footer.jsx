@@ -1,15 +1,23 @@
+import React from "react";
 import { Center, Box } from "@chakra-ui/react";
 
-const footerStyles={
-    p:"50px",
-}
+// Styling for the footer
+const footerStyles = {
+  p: "50px",
+};
 
+// Footer component
 function Footer() {
-    return(
-        <Box as="footer" sx={footerStyles}>
-            <Center>Developed by Micah Dershem-Hanchett, Joshua Garnaat, and Beatriz Strobel</Center>
-        </Box> 
-    );
+  return (
+    // Box component as the footer with specified styles
+    <Box as="footer" sx={footerStyles}>
+      {/* Center component to horizontally center the content */}
+      <Center>
+        {/* Developer information */}
+        Developed by Micah Dershem-Hanchett, Joshua Garnaat, and Beatriz Strobel
+      </Center>
+    </Box>
+  );
 }
 
 export default Footer;

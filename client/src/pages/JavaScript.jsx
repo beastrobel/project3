@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Container,
   Box,
@@ -8,7 +9,9 @@ import {
   Image,
 } from "@chakra-ui/react";
 
+// JavaScript component displaying information about JavaScript
 function JavaScript() {
+  // Styling objects for different elements
   const boxStyles = {
     p: "10px",
     display: "flex",
@@ -52,14 +55,17 @@ function JavaScript() {
 
   return (
     <Box as="section">
+      {/* Hero section with image and heading */}
       <Box sx={heroBoxStyles}>
         <Image src="/JS.jpg" sx={imageStyles} />
         <Heading as="h1" sx={heroTextStyles}>
           JavaScript
         </Heading>
       </Box>
+
+      {/* Container for text content */}
       <Container maxWidth="md" py="50px" sx={textBoxStyles}>
-        {/* Styles applied to the text box */}
+        {/* Text content with styles */}
         <Text>
           JavaScript is a coding language mainly used for making websites
           interactive and dynamic. It works on the user's web browser and does
@@ -76,7 +82,10 @@ function JavaScript() {
           functions, and much more.
         </Text>
       </Container>
+
+      {/* Box with links and buttons */}
       <Box sx={boxStyles}>
+        {/* Link to W3Schools for trying JavaScript */}
         <Link
           href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_editor"
           isExternal
@@ -87,6 +96,8 @@ function JavaScript() {
             Try it!
           </Button>
         </Link>
+
+        {/* Link to MDN Web Docs for learning more about JavaScript */}
         <Link
           href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
           isExternal
