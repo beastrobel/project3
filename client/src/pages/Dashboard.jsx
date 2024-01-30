@@ -1,12 +1,13 @@
 import { Container, Box, Heading, Text, Button, Image, Flex, } from "@chakra-ui/react";
 import { useQuery } from '@apollo/client';
-import { QUERY_PROFILE } from '../components/utils/queries';
+import { QUERY_PROFILE, QUERY_QUESTIONS } from '../components/utils/queries';
 import { loadStripe } from '@stripe/stripe-js';
 import { useEffect } from "react";
 import AddPostForm from "../components/posts/AddPostForm";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectAllUsers } from "../components/users/usersSlice";
+import Question from "../components/Question";
 
 //Stripe
 //const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
@@ -35,7 +36,9 @@ const profileStyles={
     borderRadius: "30px",
 };
 
-function Dashboard() {
+const Dashboard = () => {
+    const { loading, data } = useQuery(QUERY_QUESTIONS);
+    const questions = data?.questions || [];
 
     let user = localStorage.getItem('username');
     console.log(user);
@@ -79,7 +82,7 @@ function Dashboard() {
             </Container>
         </Box>
         <Container size="md" py="50px">
-            <AddPostForm /><br/>
+            <Question questions={questions}/><br/>
         </Container>
         <Box sx={boxStyles}>
             <Container sx={donateText}>

@@ -14,7 +14,11 @@ export const QUERY_QUESTIONS = gql`
             _id 
             questionText
             questionAuthor
-            createdAt 
+            comments {
+                _id
+                commentText
+                commentAuthor
+            }
         }
     }
 `;
@@ -25,12 +29,10 @@ export const QUERY_SINGLE_QUESTION = gql`
             _id 
             questionText 
             questionAuthor
-            createdAt 
             comments {
                 _id 
                 commentText 
-                commentAuthor 
-                createdAt 
+                commentAuthor
             }
         }
     }
@@ -44,7 +46,6 @@ export const QUERY_ME = gql`
             _id
             questionText
             questionAuthor
-            createdAt
         }
     }
 `;

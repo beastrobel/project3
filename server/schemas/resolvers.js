@@ -12,7 +12,7 @@ const resolvers = {
         },
         questions: async (parent, { username }) => {
             const params = username ? { username } : {};
-            return Question.find(params).sort({ createdAt: -1 });
+            return Question.find(params);
         },
         question: async (parent, { questionId }) => {
             return Question.findOne({ _id: questionId});
@@ -66,14 +66,22 @@ const resolvers = {
 
             return question;
         },
-        addComment: async (parent, { questionId, commentText, commentAuthor }) => {
-            return Question.findOneAndUpdate(
-                { _id: questionId },
-                {
-                    $addToSet: { comments: { commentText, commentAuthor }},
-                },
-                {   new:true, runValidators: true,  }
-            );
+        addComment: async (parent, { questionId, commentText}, context) => {
+            if(context.user) {
+                return Question.findOneAndUpdate(
+                    {_id: questionId},
+                    {
+                        $addToSet: {
+                            comments: { commentText, commentAuthor: context.user.username},
+                        },
+                    },
+                    {
+                        new:true,
+                        runValidators: true,
+                    }
+                );
+            }
+            throw AuthenticationError;
         },
         removeQuestion: async (parent, { questionId }) => {
             return Question.findOneAndDelete({ _id: questionId });

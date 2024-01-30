@@ -31,8 +31,7 @@ export const ADD_QUESTION = gql`
             _id
             questionText
             questionAuthor
-            createdAt
-            comments {
+            comment {
                 _id
                 commentText
             }
@@ -41,20 +40,17 @@ export const ADD_QUESTION = gql`
 `;
 
 export const ADD_COMMENT = gql`
-    mutation addComment($questionId: ID!, $commentText: String!, $commentAuthor: String!) {
+    mutation addComment($questionId: ID!, $commentText: String!) {
         addComment(
             questionId: $questionId
-            commentText: $commentText
-            commentAuthor: $commentAuthor)
+            commentText: $commentText)
                 {
                 _id
                 questionText
                 questionAuthor
-                createdAt
                 comments {
                     _id
                     commentText
-                    createdAt
                 }
             }
         }
