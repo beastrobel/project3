@@ -42,36 +42,6 @@ const burgerNavStyles = {
 
 function Navbar() {
 
-    function showNavigation() {
-        if (Auth.loggedIn()) {
-            return (
-                <>
-                <Menu>
-                    <MenuButton
-                        as={IconButton}
-                        aria-label='Options'
-                        icon=""
-                        variant='outline'
-                        sx={burgerStyles}
-                        _hover= {{bg: "purple.800"}}
-                        _active= {{bg: "purple.800"}}
-                        >
-                        <span className="material-symbols-outlined">account_circle</span>
-                    </MenuButton>
-                    <MenuList sx={burgerNavStyles} >
-                        <CustomLink to="/Dashboard"><MenuItem sx={burgerNavStyles} _hover= {{bg: "purple.900"}}>My Profile</MenuItem></CustomLink>
-                        <CustomLink to="/"><MenuItem sx={burgerNavStyles} _hover= {{bg: "purple.900"}} onClick={() => Auth.logout()}>Log Out</MenuItem></CustomLink>
-                    </MenuList>
-                </Menu>
-                </>
-            );
-        } else {
-            return (
-                <CustomLink to="/Login"><Button colorScheme="teal" spacing="10px">Log In</Button></CustomLink>
-            );
-        }
-      }
-
     return (
         <Flex as="nav" sx ={navStyles}>
             <Menu>
@@ -102,7 +72,29 @@ function Navbar() {
                     </Flex>    
                 </CustomLink>
                 <Spacer />
-                {showNavigation()}
+             {
+                Auth.loggedIn() ? (
+                    <Menu>
+                    <MenuButton
+                        as={IconButton}
+                        aria-label='Options'
+                        icon=""
+                        variant='outline'
+                        sx={burgerStyles}
+                        _hover= {{bg: "purple.800"}}
+                        _active= {{bg: "purple.800"}}
+                        >
+                        <span className="material-symbols-outlined">account_circle</span>
+                    </MenuButton>
+                    <MenuList sx={burgerNavStyles} >
+                        <CustomLink to="/Dashboard"><MenuItem sx={burgerNavStyles} _hover= {{bg: "purple.900"}}>My Profile</MenuItem></CustomLink>
+                        <CustomLink to="/"><MenuItem sx={burgerNavStyles} _hover= {{bg: "purple.900"}} onClick={() => Auth.logout()}>Log Out</MenuItem></CustomLink>
+                    </MenuList>
+                </Menu>
+                ) : (
+                    <CustomLink to="/Login"><Button colorScheme="teal" spacing="10px">Log In</Button></CustomLink>
+                )
+             }
             </Menu>
 
         </Flex>
