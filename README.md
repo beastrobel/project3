@@ -34,7 +34,7 @@ In this project we were tasked with applying concepts learned throughout past mo
 
 
 ## Deployed application
-- LIVE Deployment: (PLACEHOLDER URL:)
+- LIVE Deployment: https://github.com/beastrobel/project3
 
 - ![demo](https://github.com/beastrobel/project3/assets/139593153/346cfac1-9bff-4ae3-9fa4-d822e4b30c9a)
 
