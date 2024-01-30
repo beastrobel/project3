@@ -1,4 +1,12 @@
-import { Container, Box, Heading, Text, Button, Link, Image } from "@chakra-ui/react";
+import {
+  Container,
+  Box,
+  Heading,
+  Text,
+  Button,
+  Link,
+  Image,
+} from "@chakra-ui/react";
 
 function SQL() {
   const boxStyles = {
@@ -12,14 +20,13 @@ function SQL() {
     marginRight: "10px",
   };
 
-  const heroBoxStyles= {
+  const heroBoxStyles = {
     bgColor: "black",
     h: "300px",
     position: "relative",
-
   };
 
-  const heroTextStyles= {
+  const heroTextStyles = {
     color: "white",
     fontSize: "5xl",
     pos: "absolute",
@@ -28,20 +35,31 @@ function SQL() {
     transform: "translate(-50%,-50%)",
   };
 
-  const imageStyles={
+  const imageStyles = {
     boxSize: "full",
-    objectFit: 'cover',
-    opacity: "40%", 
+    objectFit: "cover",
+    opacity: "40%",
     blendMode: "screen",
-  }
+  };
+
+  const textBoxStyles = {
+    background: "linear-gradient(to right, #8B5CF6, #9333EA)",
+    borderRadius: "8px",
+    padding: "20px",
+    marginTop: "20px",
+    color: "white",
+  };
 
   return (
     <Box as="section">
       <Box sx={heroBoxStyles}>
-          <Image src="/REACT.jpg" sx={imageStyles} />
-          <Heading as="h1" sx={heroTextStyles}>SQL</Heading>
-      </Box>  
-      <Container maxWidth="md" py="50px">
+        <Image src="/REACT.jpg" sx={imageStyles} />
+        <Heading as="h1" sx={heroTextStyles}>
+          SQL
+        </Heading>
+      </Box>
+      <Container maxWidth="md" py="50px" sx={textBoxStyles}>
+        {/* Styles applied to the text box */}
         <Text>
           SQL is like the language databases understand. It helps manage data by
           fetching specific information (SELECT), changing data (INSERT, UPDATE,
@@ -69,7 +87,12 @@ function SQL() {
             Try it!
           </Button>
         </Link>
-        <Link href="https://dev.mysql.com/doc/" isExternal style={linkStyles} target="blank">
+        <Link
+          href="https://dev.mysql.com/doc/"
+          isExternal
+          style={linkStyles}
+          target="blank"
+        >
           <Button colorScheme="purple" size="lg">
             Learn More
           </Button>

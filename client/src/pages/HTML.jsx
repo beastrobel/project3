@@ -12,14 +12,13 @@ function HTML() {
     marginRight: "10px",
   };
 
-  const heroBoxStyles= {
+  const heroBoxStyles = {
     bgColor: "black",
     h: "300px",
     position: "relative",
-
   };
 
-  const heroTextStyles= {
+  const heroTextStyles = {
     color: "white",
     fontSize: "5xl",
     pos: "absolute",
@@ -28,20 +27,33 @@ function HTML() {
     transform: "translate(-50%,-50%)",
   };
 
-  const imageStyles={
+  const imageStyles = {
     boxSize: "full",
     objectFit: 'cover',
     opacity: "40%", 
     blendMode: "screen",
-  }
+  };
+
+
+  const textBoxStyles = {
+
+    background: "linear-gradient(to right, #8B5CF6, #9333EA)",
+    borderRadius: "8px",
+    padding: "20px",
+    marginTop: "20px",
+    color: "white", 
+  };
 
   return (
     <Box as="section">
       <Box sx={heroBoxStyles}>
-          <Image src="/HTML.jpg" sx={imageStyles} />
-          <Heading as="h1" sx={heroTextStyles}>HTML</Heading>
-      </Box>  
-      <Container maxWidth="md" py="50px">
+        <Image src="/HTML.jpg" sx={imageStyles} />
+        <Heading as="h1" sx={heroTextStyles}>
+          HTML
+        </Heading>
+      </Box>
+      <Container maxWidth="md" py="50px" sx={textBoxStyles}>
+        {/* Styles applied to the text box */}
         <Text>
           HTML, or HyperText Markup Language, is the blueprint for web pages. It
           helps organize and describe content on the internet. With HTML, a user
@@ -49,7 +61,7 @@ function HTML() {
           user input. It's the foundation of web development, working together
           with CSS and JavaScript to make websites look good and interactive.
         </Text>
-        <Text>
+        <Text mt="4">
           Given that HTML is inherently text-based, editing an HTML file is
           easily done by opening it in programs such as Notepad++, Vi, or Visual
           Studio Code. HTML serves as the foundational building block for any

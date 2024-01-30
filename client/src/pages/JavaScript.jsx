@@ -1,4 +1,12 @@
-import { Container, Box, Heading, Text, Button, Link, Image } from "@chakra-ui/react";
+import {
+  Container,
+  Box,
+  Heading,
+  Text,
+  Button,
+  Link,
+  Image,
+} from "@chakra-ui/react";
 
 function JavaScript() {
   const boxStyles = {
@@ -12,14 +20,13 @@ function JavaScript() {
     marginRight: "10px",
   };
 
-  const heroBoxStyles= {
+  const heroBoxStyles = {
     bgColor: "black",
     h: "300px",
     position: "relative",
-
   };
 
-  const heroTextStyles= {
+  const heroTextStyles = {
     color: "white",
     fontSize: "5xl",
     pos: "absolute",
@@ -28,20 +35,31 @@ function JavaScript() {
     transform: "translate(-50%,-50%)",
   };
 
-  const imageStyles={
+  const imageStyles = {
     boxSize: "full",
-    objectFit: 'cover',
-    opacity: "40%", 
+    objectFit: "cover",
+    opacity: "40%",
     blendMode: "screen",
-  }
+  };
+
+  const textBoxStyles = {
+    background: "linear-gradient(to right, #8B5CF6, #9333EA)",
+    borderRadius: "8px",
+    padding: "20px",
+    marginTop: "20px",
+    color: "white",
+  };
 
   return (
     <Box as="section">
       <Box sx={heroBoxStyles}>
-          <Image src="/JS.jpg" sx={imageStyles} />
-          <Heading as="h1" sx={heroTextStyles}>JavaScript</Heading>
-      </Box>  
-      <Container maxWidth="md" py="50px">
+        <Image src="/JS.jpg" sx={imageStyles} />
+        <Heading as="h1" sx={heroTextStyles}>
+          JavaScript
+        </Heading>
+      </Box>
+      <Container maxWidth="md" py="50px" sx={textBoxStyles}>
+        {/* Styles applied to the text box */}
         <Text>
           JavaScript is a coding language mainly used for making websites
           interactive and dynamic. It works on the user's web browser and does
@@ -51,7 +69,7 @@ function JavaScript() {
           forms. JavaScript is a key player in making websites not just static
           pages, but lively and interactive ones.
         </Text>
-        <Text>
+        <Text mt="4">
           JavaScript boasts a wide array of applications, serving diverse
           purposes in website development, crafting single-page applications,
           enhancing interactive user experiences, implementing serverless

@@ -1,6 +1,14 @@
-import { Container, Box, Heading, Text, Button, Link, Image } from "@chakra-ui/react";
+import {
+  Container,
+  Box,
+  Heading,
+  Text,
+  Button,
+  Link,
+  Image,
+} from "@chakra-ui/react";
 
-//Chakra UI Styling
+// Chakra UI Styling
 const boxStyles = {
   p: "10px",
   display: "flex",
@@ -12,14 +20,13 @@ const linkStyles = {
   marginRight: "10px",
 };
 
-const heroBoxStyles= {
+const heroBoxStyles = {
   bgColor: "black",
   h: "300px",
   position: "relative",
-
 };
 
-const heroTextStyles= {
+const heroTextStyles = {
   color: "white",
   fontSize: "5xl",
   pos: "absolute",
@@ -28,22 +35,32 @@ const heroTextStyles= {
   transform: "translate(-50%,-50%)",
 };
 
-const imageStyles={
+const imageStyles = {
   boxSize: "full",
-  objectFit: 'cover',
-  opacity: "40%", 
+  objectFit: "cover",
+  opacity: "40%",
   blendMode: "screen",
 };
 
 function CSS() {
+  const textBoxStyles = {
+    background: "linear-gradient(to right, #8B5CF6, #9333EA)",
+    borderRadius: "8px",
+    padding: "20px",
+    marginTop: "20px",
+    color: "white",
+  };
 
   return (
     <Box as="section">
       <Box sx={heroBoxStyles}>
-          <Image src="/CSS.png" sx={imageStyles} />
-          <Heading as="h1" sx={heroTextStyles}>CSS</Heading>
-      </Box>   
-      <Container maxWidth="md" py="50px">
+        <Image src="/CSS.png" sx={imageStyles} />
+        <Heading as="h1" sx={heroTextStyles}>
+          CSS
+        </Heading>
+      </Box>
+      <Container maxWidth="md" py="50px" sx={textBoxStyles}>
+        {/* Styles applied to the text box */}
         <Text>
           CSS, or Cascading Style Sheets, serves as the styling language in web
           development. Its primary role is to enhance the visual aesthetics of
@@ -53,7 +70,7 @@ function CSS() {
           Essentially, CSS collaborates with HTML and JavaScript to ensure the
           creation of visually pleasing and well-designed web interfaces.
         </Text>
-        <Text>
+        <Text mt="4">
           CSS finds widespread use in creating controlled effects and flash
           animations, collaborating with dynamic web templates, optimizing
           social media styling, and various other applications.
@@ -82,7 +99,6 @@ function CSS() {
         </Link>
       </Box>
     </Box>
-
   );
 }
 
