@@ -10,7 +10,7 @@ const typeDefs = `
         _id: ID!
         questionText: String!
         questionAuthor: String
-        comment: [Comment]
+        comments: [Comment]
     }
 
     type Comment {
@@ -36,12 +36,8 @@ const typeDefs = `
     type Mutation {
         addProfile( username: String!, password: String! ): Auth
         loginProfile( username: String!, password: String! ): Auth
-        addQuestion( questionText: String!, questionAuthor: String! ): Question
-        addComment(
-            questionId: ID!
-            commentText: String!
-            commentAuthor: String!
-        ): Question
+        addQuestion( questionText: String!): Question
+        addComment(questionId: ID!, commentText: String!): Question
         removeQuestion( questionId: ID! ): Question
         removeComment( questionId: ID!, commentId: ID! ): Question
     }

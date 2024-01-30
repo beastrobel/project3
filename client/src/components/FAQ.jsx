@@ -1,12 +1,22 @@
 import { useState } from "react";
 import { Container, Box, Heading, Text, Input, Button } from "@chakra-ui/react";
 import questionSeeds from "../../../server/seeds/questionSeeds.json";
+import { useMutation, useQuery } from "@apollo/client";
+import { ADD_COMMENT } from "./utils/mutations";
+import Auth from './utils/auth';
+import { QUERY_QUESTIONS } from "./utils/queries";
 
-function FAQ() {
+const FAQ = () => {
   const [comments, setComments] = useState(
     Array(questionSeeds.length).fill("")
   );
   const [submittedComments, setSubmittedComments] = useState([]);
+  const [addComment] = useMutation(ADD_COMMENT);
+
+  const { loading, data } = useQuery(QUERY_QUESTIONS);
+  const questions = data?.questions || [];
+  
+
 
   const handleCommentChange = (index, e) => {
     const newComments = [...comments];
@@ -14,9 +24,22 @@ function FAQ() {
     setComments(newComments);
   };
 
-  const handleSubmitComment = (index) => {
+  const handleSubmitComment = async (index, event) => {
+    event.preventDefault();
     // Implement logic to handle the user's comment for a specific question
     const userComment = comments[index];
+
+    try {
+      const { data } = await addComment({
+        variables: {
+          questionId: questions[index]._id,
+          commentText: userComment,
+          commentAuthor: Auth.getProfile().data.username,
+        },
+      });
+    } catch(err) {
+      console.error(err);
+    }
 
     // Update the submitted comments state
     setSubmittedComments((prevComments) => [
@@ -33,7 +56,7 @@ function FAQ() {
       <Heading as="h2" size="lg" mb={4}>
         FAQ
       </Heading>
-      {questionSeeds.map((item, index) => (
+      {questions.map((item, index) => (
         <Box
           key={`${index}`}
           mt={4}
@@ -56,13 +79,14 @@ function FAQ() {
             <Button
               colorScheme="teal"
               mt={2}
-              onClick={() => handleSubmitComment(index)}
+              onClick={(e) => handleSubmitComment(index, e)}
             >
               Submit Comment
             </Button>
 
-            {submittedComments.map((submittedComment, i) => {
-              if (submittedComment.questionIndex === index) {
+            {item.comments.map((c, i) => {
+              console.log(questions);
+              if (item) {
                 return (
                   <Box
                     key={`comment_${i}`}
@@ -72,8 +96,8 @@ function FAQ() {
                     borderRadius="md"
                     boxShadow="md"
                   >
-                    <Text fontWeight="bold">User Comment:</Text>
-                    <Text>{submittedComment.comment}</Text>
+                    <Text>{c.commentAuthor} Responded:</Text>
+                    <Text>{c.commentText}</Text>
                   </Box>
                 );
               }

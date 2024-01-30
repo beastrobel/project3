@@ -1,44 +1,67 @@
-import { Container, 
-    Box, 
-    Heading, 
-    Text,
+  import { Container,
+    Heading,
     Input, 
-    Button,
-    FormControl,
-    FormLabel,
-    FormErrorMessage,
-    FormHelperText, } from "@chakra-ui/react";
+    Button, } from "@chakra-ui/react";
   import { useState } from 'react';
   import { Link } from 'react-router-dom';
-  import { useMutation } from '@apollo/client';
+  import { useMutation, useQuery } from '@apollo/client';
   import { ADD_QUESTION } from './utils/mutations';
+  import { QUERY_ME, QUERY_QUESTIONS } from "./utils/queries";
+  import Auth from "./utils/auth";
   
-  function Question(props) {
-    const [formState, setFormState] = useState({ questionText: ''});
-    const [addQuestion] = useMutation(ADD_QUESTION);
+  const Question = (props) => {
+    const [questionText, setQuestionText] = useState('');
+
+    const [characterCount, setCharacterCount] = useState(0);
+
+    const [addQuestion] = useMutation(ADD_QUESTION, {
+      update(cache, { data: { addQuestion } }) {
+        try {
+          const { questions } = cache.readQuery({ query: QUERY_QUESTIONS });
+
+          cache.writeQuery({
+            query: QUERY_QUESTIONS,
+            data: { questions: [addQuestion, ...questions]},
+          });
+        } catch(e) {
+          console.error(e);
+        }
+
+        const { me } = cache.readQuery({ query: QUERY_ME});
+        cache.writeQuery({
+          query: QUERY_ME,
+          data: { me: { ...me, questions: [...me.questions, addQuestion] } },
+        });
+      },
+    });
+
+    //const [formState, setFormState] = useState({ questionText: ''});
     
     const handleFormSubmit = async (event) => {
       event.preventDefault();
-      try {
-      const mutationResponse = await addQuestion({
-        variables: {
-          questionText: formState.questionText,
-        },
-      });
-      console.log('success!')
-      } catch (e) {
-        console.log(e);
+
+      try{
+        const { data } = await addQuestion({
+          variables: {
+            questionText,
+            questionAuthor: Auth.getProfile().data.username,
+          },
+        });
+        setQuestionText('');
+      } catch(err) {
+        console.error(err)
       }
     };
   
     const handleChange = (event) => {
       const { name, value } = event.target;
-      setFormState({
-        ...formState,
-        [name]: value,
-      });
+      
+      if (name === 'questionText' && value.length <= 280) {
+        setQuestionText(value);
+        setCharacterCount(value.length);
+      }
     };
-    console.log(formState);
+    //console.log(formState);
   
     return (
       <Container size="md" py="50px">
@@ -46,8 +69,9 @@ import { Container,
         <form onSubmit={handleFormSubmit}>
           <div className="flex-row space-between my-2">
             <Input
-              placeholder="..."
               name="questionText"
+              placeholder="..."
+              value={questionText}              
               type="text"
               id="questionText"
               onChange={handleChange}
