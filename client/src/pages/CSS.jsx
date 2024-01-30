@@ -53,7 +53,7 @@ function CSS() {
           Essentially, CSS collaborates with HTML and JavaScript to ensure the
           creation of visually pleasing and well-designed web interfaces.
         </Text>
-        <Text>
+        <Text mt="4">
           CSS finds widespread use in creating controlled effects and flash
           animations, collaborating with dynamic web templates, optimizing
           social media styling, and various other applications.

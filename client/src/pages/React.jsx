@@ -50,7 +50,7 @@ function ReactComponent() {
           should look based on the application's state, and React takes care of
           updating the DOM to match that state.
         </Text>
-        <Text>
+        <Text mt="4">
           React is often used in conjunction with other libraries or frameworks
           (such as Redux for state management) to build scalable and
           maintainable applications. It's widely adopted in the development

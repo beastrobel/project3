@@ -49,7 +49,7 @@ function HTML() {
           user input. It's the foundation of web development, working together
           with CSS and JavaScript to make websites look good and interactive.
         </Text>
-        <Text>
+        <Text mt="4">
           Given that HTML is inherently text-based, editing an HTML file is
           easily done by opening it in programs such as Notepad++, Vi, or Visual
           Studio Code. HTML serves as the foundational building block for any

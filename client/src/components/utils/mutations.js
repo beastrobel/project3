@@ -31,7 +31,7 @@ export const ADD_QUESTION = gql`
             _id
             questionText
             questionAuthor
-            comment {
+            comments {
                 _id
                 commentText
             }
