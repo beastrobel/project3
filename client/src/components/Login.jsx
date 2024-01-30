@@ -8,9 +8,8 @@ import { Container,
   FormErrorMessage,
   FormHelperText, } from "@chakra-ui/react";
 import { useState } from 'react';
-// import { useUserContext } from "../../utils/GlobalState";
 import { useMutation } from '@apollo/client';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LOGIN_PROFILE } from './utils/mutations';
 import Auth from './utils/auth';
 import { useDispatch, useSelector } from "react-redux";
@@ -30,7 +29,8 @@ const loginStyles = {
 
 function Login(props) {
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [formState, setFormState] = useState({ username: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_PROFILE);
@@ -52,6 +52,10 @@ function Login(props) {
           )
       }
       console.log("User:", formState.username);
+      if(Auth.loggedIn()){
+        navigate("/Dashboard")
+         console.log('Logged in!')
+        }
     } catch (e) {
       console.log(e);
     }

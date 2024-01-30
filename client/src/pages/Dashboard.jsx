@@ -43,7 +43,7 @@ function Dashboard() {
 
     const { data, loading, error } = useQuery(QUERY_PROFILE, {
         variables: {
-            username: users[0].username
+            username: users[1].username
         }
         });
 
@@ -74,8 +74,7 @@ function Dashboard() {
                         <Image src="/user.png" w="100px" />
                     </Box>
                     <Box pl="30px">
-                        <Heading>Hello {user} !</Heading>
-                        <Link color="purple">Profile settings</Link>
+                        <Heading>Hello {user}!</Heading>
                     </Box>
                 </Flex>
             </Container>
