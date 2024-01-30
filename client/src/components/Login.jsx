@@ -7,7 +7,7 @@ import { Container,
   FormLabel,
   FormErrorMessage,
   FormHelperText, } from "@chakra-ui/react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { Link, useNavigate } from 'react-router-dom';
 import { LOGIN_PROFILE } from './utils/mutations';
@@ -30,7 +30,6 @@ const loginStyles = {
 function Login(props) {
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [formState, setFormState] = useState({ username: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_PROFILE);
@@ -52,13 +51,10 @@ function Login(props) {
           )
       }
       console.log("User:", formState.username);
-      if(Auth.loggedIn()){
-        navigate("/Dashboard")
-         console.log('Logged in!')
-        }
-    } catch (e) {
+      localStorage.setItem('username', formState.username);
+      } catch (e) {
       console.log(e);
-    }
+      }
   };
 
   const handleChange = (event) => {
@@ -72,6 +68,7 @@ function Login(props) {
       username: value,
     });
   };
+
 
   return (
     <Box sx={loginStyles}>
