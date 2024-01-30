@@ -37,25 +37,24 @@ const profileStyles={
 
 function Dashboard() {
 
-    const users = useSelector(selectAllUsers);
+    let user = localStorage.getItem('username');
+    console.log(user);
 
-    console.log(users);
+    // const { data, loading, error } = useQuery(QUERY_PROFILE, {
+    //     variables: {
+    //         username: users[1].username
+    //     }
+    //     });
+    //     localStorage.setItem('username', users[1].username);
 
-    const { data, loading, error } = useQuery(QUERY_PROFILE, {
-        variables: {
-            username: users[1].username
-        }
-        });
 
-       let user;
-
-         if (data) {
-             user = data.profile.username;
-         }
-        console.log(data);
-         console.log(loading);
-         console.log(error);
-    
+    //      if (data) {
+    //          user = data.profile.username;
+    //      }
+    //     console.log(data);
+    //      console.log(loading);
+    //      console.log(error);
+        
     // //Stripe
     // useEffect(() => {
     //     if (data) {
