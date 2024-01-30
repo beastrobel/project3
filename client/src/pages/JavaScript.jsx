@@ -51,7 +51,7 @@ function JavaScript() {
           forms. JavaScript is a key player in making websites not just static
           pages, but lively and interactive ones.
         </Text>
-        <Text>
+        <Text mt="4">
           JavaScript boasts a wide array of applications, serving diverse
           purposes in website development, crafting single-page applications,
           enhancing interactive user experiences, implementing serverless
