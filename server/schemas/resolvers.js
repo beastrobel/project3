@@ -56,15 +56,21 @@ const resolvers = {
 
             return { token, user };
         },
-        addQuestion: async (parent, { questionText, questionAuthor }) => {
-            const question = await Question.create({ questionText, questionAuthor });
+        addQuestion: async (parent, { questionText }, context ) => {
+            if (context.user) {
+                const question = await Question.create({
+                    questionText,
+                    questionAuthor: context.user.username,
+                });
 
-            await Profile.findOneAndUpdate(
-                { username: questionAuthor },
-                { $addToSet: { questions: question.id }}
-            );
+                await Profile.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { questions: question._id }}
+                );
 
-            return question;
+                return question;
+            }
+            throw AuthenticationError;
         },
         addComment: async (parent, { questionId, commentText}, context) => {
             if(context.user) {
