@@ -26,8 +26,8 @@ mutation AddProfile($username: String!, $password: String!) {
 `;
 
 export const ADD_QUESTION = gql`
-    mutation addQuestion($questionText: String!, $questionAuthor: String!) {
-        addQuestion(questionText: $questionText, questionAuthor: $questionAuthor) {
+    mutation addQuestion($questionText: String!) {
+        addQuestion(questionText: $questionText) {
             _id
             questionText
             questionAuthor
