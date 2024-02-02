@@ -4,7 +4,6 @@ const theme = extendTheme({
   fonts: {
     heading: `'Figtree Variable', sans-serif`,
     body: `'Figtree Variable', sans-serif`,
-    brand: `'Audiowide', sans-serif`,
   },
 })
 

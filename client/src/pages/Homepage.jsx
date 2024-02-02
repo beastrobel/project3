@@ -2,7 +2,6 @@ import { Container, Box, Heading, Text, Button, Image } from "@chakra-ui/react";
 import Signup from "../components/Signup";
 import FAQ from "../components/FAQ";
 import { Link } from 'react-router-dom';
-import PostsList from "../components/posts/PostsList";
 
 //Chakra UI Styling
 const heroBoxStyles = {
@@ -34,7 +33,6 @@ function Homepage() {
   }
 
   let randomPage = `/${pages[explore(5)]}`;
-  console.log(randomPage) 
   
   return (
     <>
@@ -51,11 +49,10 @@ function Homepage() {
         </Box>
       </Box>
       <Box as="section" bgColor="purple.800" color="white">
-      <Signup />
+        <Signup />
       </Box>
       <Container as="section" size="md" mt="50px">
         <FAQ />
-        <PostsList />
       </Container>
     </>
   );

@@ -2,13 +2,10 @@ import { Outlet } from 'react-router-dom';
 import { ApolloClient , InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { ChakraProvider } from '@chakra-ui/react';
 import '@fontsource-variable/figtree';
-import '@fontsource/audiowide';
 import { setContext } from '@apollo/client/link/context';
 import theme from './components/Theme';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { store } from './app/store';
-import { Provider } from 'react-redux';
 
 const httpLink = createHttpLink({
     uri: '/graphql',
@@ -34,13 +31,11 @@ function App() {
     return (
         <ChakraProvider theme={theme}>
             <ApolloProvider client={client}>
-                <Provider store={store}>
-                    <Navbar/>
+                <Navbar/>
                     <div className='container'>
                         <Outlet />
                     </div>
-                    <Footer/>
-                </Provider>
+                <Footer/>
             </ApolloProvider>
         </ChakraProvider >
     );    
