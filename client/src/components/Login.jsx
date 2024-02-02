@@ -3,17 +3,13 @@ import { Container,
   Heading, 
   Input, 
   Button,
-  FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText, } from "@chakra-ui/react";
+ } from "@chakra-ui/react";
 import { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { LOGIN_PROFILE } from './utils/mutations';
 import Auth from './utils/auth';
-import { useDispatch, useSelector } from "react-redux";
-import { userAdded } from "./users/usersSlice";
 
 const loginStyles = {
   bgColor: "purple.800",
@@ -29,11 +25,8 @@ const loginStyles = {
 
 function Login(props) {
 
-  const dispatch = useDispatch();
-
   const [formState, setFormState] = useState({ username: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_PROFILE);
-  const [username, setUsername] = useState('');
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -43,14 +36,6 @@ function Login(props) {
       });
       const token = mutationResponse.data.loginProfile.token;
       Auth.login(token);
-      console.log('success!')
-      if (formState.username) {
-        console.log("Dispatching user:", formState.username);
-          dispatch(
-              userAdded(formState.username)
-          )
-      }
-      console.log("User:", formState.username);
       localStorage.setItem('username', formState.username);
       } catch (e) {
       console.log(e);
@@ -63,12 +48,7 @@ function Login(props) {
       ...formState,
       [name]: value,
     });
-    setUsername({
-      ...username,
-      username: value,
-    });
   };
-
 
   return (
     <Box sx={loginStyles}>

@@ -1,17 +1,11 @@
-import { Container, 
-  Box, 
+import { Container,  
   Heading, 
-  Text,
   Input, 
   Button,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText, } from "@chakra-ui/react";
+  FormLabel, } from "@chakra-ui/react";
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import Auth from './utils/auth';
 import { ADD_PROFILE } from './utils/mutations';
 
 function Signup(props) {
@@ -43,7 +37,6 @@ function Signup(props) {
       [name]: value,
     });
   };
-  console.log(formState);
 
   return (
     <Container maxWidth="md" py="50px">

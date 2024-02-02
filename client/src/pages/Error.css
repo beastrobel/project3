@@ -1,5 +1,5 @@
 .background {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/andy-holmes-rCbdp8VCYhQ-unsplash.jpg");
+    background-image: linear-gradient(rgb(116, 69, 190), rgba(116, 69, 190));
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -20,7 +20,7 @@
 }
 
 .errorBtn {
-    background-color: #805AD5;
+    background-color: #38B2AC;
     width: 100px;
     height: 40px;
     padding: 5px;
@@ -34,7 +34,7 @@
 }
 
 .errorBtn:hover {
-    background-color: #553C9A;
+    background-color: #2C7A7B;
     text-decoration: none;
     border: none;
     cursor: pointer;

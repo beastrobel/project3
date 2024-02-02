@@ -1,9 +1,9 @@
   import { Container,
     Heading,
-    Input, 
-    Button, } from "@chakra-ui/react";
+    Textarea, 
+    Button,
+    Text } from "@chakra-ui/react";
   import { useState } from 'react';
-  import { Link } from 'react-router-dom';
   import { useMutation, useQuery } from '@apollo/client';
   import { ADD_QUESTION } from './utils/mutations';
   import { QUERY_ME, QUERY_QUESTIONS } from "./utils/queries";
@@ -34,8 +34,6 @@
         });
       },
     });
-
-    //const [formState, setFormState] = useState({ questionText: ''});
     
     const handleFormSubmit = async (event) => {
       event.preventDefault();
@@ -61,14 +59,13 @@
         setCharacterCount(value.length);
       }
     };
-    //console.log(formState);
   
     return (
       <Container size="md" py="50px">
       <Heading>Ask a question:</Heading><br/>
         <form onSubmit={handleFormSubmit}>
           <div className="flex-row space-between my-2">
-            <Input
+            <Textarea
               name="questionText"
               placeholder="..."
               value={questionText}              
@@ -85,8 +82,9 @@
          >
            Submit
          </Button>
-        </form>
-        </Container>
+        </form><br/>
+        <Text>Your question will be displayed on the homepage.</Text>
+      </Container>
     );
   }
   

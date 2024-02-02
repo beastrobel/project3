@@ -1,16 +1,7 @@
 import { Container, Box, Heading, Text, Button, Image, Flex, } from "@chakra-ui/react";
 import { useQuery } from '@apollo/client';
-import { QUERY_PROFILE, QUERY_QUESTIONS } from '../components/utils/queries';
-import { loadStripe } from '@stripe/stripe-js';
-import { useEffect } from "react";
-import AddPostForm from "../components/posts/AddPostForm";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectAllUsers } from "../components/users/usersSlice";
+import { QUERY_QUESTIONS } from '../components/utils/queries';
 import Question from "../components/Question";
-
-//Stripe
-//const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 //Chakra UI Styling
 const boxStyles = {
@@ -41,31 +32,6 @@ const Dashboard = () => {
     const questions = data?.questions || [];
 
     let user = localStorage.getItem('username');
-    console.log(user);
-
-    // const { data, loading, error } = useQuery(QUERY_PROFILE, {
-    //     variables: {
-    //         username: users[1].username
-    //     }
-    //     });
-    //     localStorage.setItem('username', users[1].username);
-
-
-    //      if (data) {
-    //          user = data.profile.username;
-    //      }
-    //     console.log(data);
-    //      console.log(loading);
-    //      console.log(error);
-        
-    // //Stripe
-    // useEffect(() => {
-    //     if (data) {
-    //         stripePromise.then((res) => {
-    //         res.redirectToCheckout({ sessionId: data.checkout.session });
-    //         });
-    //     }
-    // }, [data]);
 
     return(
         <>
@@ -87,14 +53,8 @@ const Dashboard = () => {
         <Box sx={boxStyles}>
             <Container sx={donateText}>
                 <Heading>Unlock new features!</Heading>
-                <Text>For just $1 you can have access to quizzes and profile customization.</Text><br/>
-
-                {/* Stripe */}
-                <form action="/create-checkout-session" method="POST">
-                    <input type="hidden" name="lookup_key" value="{{PRICE_LOOKUP_KEY}}" />
-                    <Button id="checkout-and-portal-button" type="submit" colorScheme="gray">Unlock <span className="material-symbols-outlined">key_vertical</span></Button>
-                </form>
-
+                <Text>For just $1 you can have access to quizzes and profile customization.<br/>(Future Development)</Text><br/>
+                    <Button colorScheme="gray">Unlock <span className="material-symbols-outlined">key_vertical</span></Button>
             </Container>
         </Box>   
         </>

@@ -85,7 +85,6 @@ const FAQ = () => {
             </Button>
 
             {item.comments.map((c, i) => {
-              console.log(questions);
               if (item) {
                 return (
                   <Box
