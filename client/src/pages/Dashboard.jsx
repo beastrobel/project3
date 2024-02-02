@@ -54,13 +54,7 @@ const Dashboard = () => {
             <Container sx={donateText}>
                 <Heading>Unlock new features!</Heading>
                 <Text>For just $1 you can have access to quizzes and profile customization.<br/>(Future Development)</Text><br/>
-
-                {/* Stripe */}
-                <form action="/create-checkout-session" method="POST">
-                    <input type="hidden" name="lookup_key" value="{{PRICE_LOOKUP_KEY}}" />
                     <Button colorScheme="gray">Unlock <span className="material-symbols-outlined">key_vertical</span></Button>
-                </form>
-
             </Container>
         </Box>   
         </>
