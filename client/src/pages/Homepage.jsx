@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 //Chakra UI Styling
 const heroBoxStyles = {
-  bgGradient: "linear(to-tl, blue.900, purple.900)",
+  bgGradient: "linear(to-tl, blue.700, purple.800)",
   h: "600px",
 };
 
@@ -37,7 +37,6 @@ function Homepage() {
   return (
     <>
       <Box as="section" sx={heroBoxStyles}>
-        <Image src="/andy-holmes-rCbdp8VCYhQ-unsplash.jpg" sx={imageStyles} />
         <Box sx={heroTextStyles}>
           <Heading size="2xl">Welcome to Your Coding Odyssey!🚀</Heading>
           <Text fontSize="18px">
