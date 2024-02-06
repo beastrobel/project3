@@ -1,4 +1,4 @@
-# A Programmers Guide to the Galaxy:
+# The Programmers Guide to the Galaxy:
 
 ## Badges
 
@@ -37,7 +37,8 @@ In this project we were tasked with applying concepts learned throughout past mo
 - LIVE Deployment: [https://the-programmers-guide-to-the-galaxy.onrender.com](https://the-programmers-guide-to-the-galaxy.onrender.com/)
 
 
-- ![demo](https://github.com/beastrobel/project3/assets/139593153/346cfac1-9bff-4ae3-9fa4-d822e4b30c9a)
+![Screenshot (213)](https://github.com/beastrobel/project3/assets/137853377/bccbd927-180d-4006-99ac-09a41c5134e3)
+
 
 ## Installation
 
